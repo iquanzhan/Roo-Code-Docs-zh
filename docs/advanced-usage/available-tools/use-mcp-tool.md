@@ -1,149 +1,149 @@
 ---
-description: Discover how use_mcp_tool integrates external MCP servers to extend Roo Code with specialized tools, domain-specific functionality, and external services.
+description: 了解 use_mcp_tool 如何通过集成外部 MCP 服务器来扩展 Roo Code，提供专业工具、领域特定功能和外部服务。
 keywords:
   - use_mcp_tool
-  - MCP tools
-  - Model Context Protocol
-  - external tools
-  - Roo Code integration
-  - MCP servers
-  - domain tools
-  - tool extension
+  - MCP 工具
+  - 模型上下文协议
+  - 外部工具
+  - Roo Code 集成
+  - MCP 服务器
+  - 领域工具
+  - 工具扩展
   - VS Code AI
 image: /img/social-share.jpg
 ---
 
-# use_mcp_tool
+# 使用MCP工具
 
-The `use_mcp_tool` tool enables interaction with external tools provided by connected Model Context Protocol (MCP) servers. It extends Roo's capabilities with domain-specific functionality through a standardized protocol.
-
----
-
-## Parameters
-
-The tool accepts these parameters:
-
-- `server_name` (required): The name of the MCP server providing the tool
-- `tool_name` (required): The name of the tool to execute
-- `arguments` (required/optional): A JSON object containing the tool's input parameters, following the tool's input schema. May be optional for tools that require no input.
+`use_mcp_tool` 工具可以与连接的模型上下文协议 (MCP) 服务器提供的外部工具进行交互。它通过标准化协议，使用领域特定功能扩展 Roo 的能力。
 
 ---
 
-## What It Does
+## 参数
 
-This tool allows Roo to access specialized functionality provided by external MCP servers. Each MCP server can offer multiple tools with unique capabilities, extending Roo beyond its built-in functionality. The system validates arguments against schemas, manages server connections, and processes responses of various content types (text, image, resource).
+该工具接受以下参数：
 
----
-
-## When is it used?
-
-- When specialized functionality not available in core tools is needed
-- When domain-specific operations are required
-- When integration with external systems or services is needed
-- When working with data that requires specific processing or analysis
-- When accessing proprietary tools through a standardized interface
+- `server_name`（必需）：提供工具的 MCP 服务器名称
+- `tool_name`（必需）：要执行的工具名称
+- `arguments`（必需/可选）：包含工具输入参数的 JSON 对象，遵循工具的输入模式。对于不需要输入的工具，该参数可以是可选的。
 
 ---
 
-## Key Features
+## 功能
 
-- Uses the standardized MCP protocol via the `@modelcontextprotocol/sdk` library
-- Supports multiple transport mechanisms (StdioClientTransport, StreamableHTTPClientTransport and SSEClientTransport)
-- Validates arguments using Zod schema validation on both client and server sides
-- Processes multiple response content types: text, image, and resource references
-- Manages server lifecycle with automatic restarts when server code changes
-- Provides an "always allow" mechanism to bypass approval for trusted tools
-- Works with the companion `access_mcp_resource` tool for resource retrieval
-- Maintains proper error tracking and handling for failed operations
-- Supports configurable timeouts (1-3600 seconds, default: 60 seconds)
-- Allows file watchers to automatically detect and reload server changes
+此工具允许 Roo 访问由外部 MCP 服务器提供的专业功能。每个 MCP 服务器可以提供具有独特功能的多个工具，从而扩展 Roo 的内置功能。系统会根据模式验证参数，管理服务器连接，并处理各种内容类型（文本、图像、资源）的响应。
 
 ---
 
-## Limitations
+## 使用场景
 
-- Depends on external MCP servers being available and connected
-- Limited to the tools provided by connected servers
-- Tool capabilities vary between different MCP servers
-- Network issues can affect reliability and performance
-- Requires user approval before execution (unless in the "always allow" list)
-- Cannot execute multiple MCP tool operations simultaneously
-
----
-
-## Server Configuration
-
-MCP servers can be configured globally or at the project level:
-
-- **Global Configuration**: Managed through the Roo Code extension settings in VS Code. These apply across all projects unless overridden.
-- **Project-level Configuration**: Defined in a `.roo/mcp.json` file within your project's root directory.
- - This allows project-specific server setups.
- - Project-level servers take precedence over global servers if they share the same name.
- - Since `.roo/mcp.json` can be committed to version control, it simplifies sharing configurations with your team.
+- 需要核心工具中不可用的专业功能时
+- 需要领域特定操作时
+- 需要与外部系统或服务集成时
+- 处理需要特定处理或分析的数据时
+- 通过标准化接口访问专有工具时
 
 ---
 
-## How It Works
+## 主要特性
 
-When the `use_mcp_tool` tool is invoked, it follows this process:
-
-1. **Initialization and Validation**:
-   - The system verifies that the MCP hub is available
-   - Confirms the specified server exists and is connected
-   - Validates the requested tool exists on the server
-   - Arguments are validated against the tool's schema definition
-   - Timeout settings are extracted from server configuration (default: 60 seconds)
-
-2. **Execution and Communication**:
-   - The system selects the appropriate transport mechanism:
-     - `StdioClientTransport`: For communicating with local processes via standard I/O
-     - `SSEClientTransport`: For communicating with HTTP servers via Server-Sent Events
-     - `StreamableHTTPClientTransport`: For communicating with HTTP servers via Streamable HTTP Events
-   - A request is sent with validated server name, tool name, and arguments
-   - Communication uses the `@modelcontextprotocol/sdk` library for standardized interactions
-   - Request execution is tracked with timeout handling to prevent hanging operations
-
-3. **Response Processing**:
-   - Responses can include multiple content types:
-     - Text content: Plain text responses
-     - Image content: Binary image data with MIME type information
-     - Resource references: URIs to access server resources (works with `access_mcp_resource`)
-   - The system checks the `isError` flag to determine if error handling is needed
-   - Results are formatted for display in the Roo interface
-
-4. **Resource and Error Handling**:
-   - The system uses WeakRef patterns to prevent memory leaks
-   - A consecutive mistake counter tracks and manages errors
-   - File watchers monitor for server code changes and trigger automatic restarts
-   - The security model requires approval for tool execution unless in the "always allow" list
+- 通过 `@modelcontextprotocol/sdk` 库使用标准化的 MCP 协议
+- 支持多种传输机制（StdioClientTransport、StreamableHTTPClientTransport 和 SSEClientTransport）
+- 在客户端和服务器端使用 Zod 模式验证来验证参数
+- 处理多种响应内容类型：文本、图像和资源引用
+- 通过自动重启来管理服务器生命周期
+- 提供“始终允许”机制以绕过受信任工具的批准
+- 与配套的 `access_mcp_resource` 工具配合使用以检索资源
+- 为失败的操作维护适当的错误跟踪和处理
+- 支持可配置的超时（1-3600 秒，默认值：60 秒）
+- 允许文件监视器自动检测和重新加载服务器更改
 
 ---
 
-## Security and Permissions
+## 限制
 
-The MCP architecture provides several security features:
-
-- Users must approve tool usage before execution (by default)
-- Specific tools can be marked for automatic approval in the "always allow" list
-- Server configurations are validated with Zod schemas for integrity
-- Configurable timeouts prevent hanging operations (1-3600 seconds)
-- Server connections can be enabled or disabled through the UI
-
----
-
-## Examples When Used
-
-- Analyzing specialized data formats using server-side processing tools
-- Generating images or other media through AI models hosted on external servers
-- Executing complex domain-specific calculations without local implementation
-- Accessing proprietary APIs or services through a controlled interface
-- Retrieving data from specialized databases or data sources
+- 依赖于外部 MCP 服务器的可用性和连接性
+- 仅限于连接服务器提供的工具
+- 不同 MCP 服务器之间的工具功能各不相同
+- 网络问题可能会影响可靠性和性能
+- 执行前需要用户批准（除非在“始终允许”列表中）
+- 无法同时执行多个 MCP 工具操作
 
 ---
 
-## Usage Examples
+## 服务器配置
 
-Requesting weather forecast data with text response:
+MCP 服务器可以在全局或项目级别进行配置：
+
+- **全局配置**：通过 VS Code 中的 Roo Code 扩展设置进行管理。这些设置适用于所有项目，除非被覆盖。
+- **项目级别配置**：在项目根目录中的 `.roo/mcp.json` 文件中定义。
+ - 这允许进行项目特定的服务器设置。
+ - 如果项目级别服务器与全局服务器同名，则项目级别服务器优先。
+ - 由于 `.roo/mcp.json` 可以提交到版本控制中，因此可以简化与团队共享配置。
+
+---
+
+## 工作原理
+
+调用 `use_mcp_tool` 工具时，它会遵循以下流程：
+
+1. **初始化和验证**：
+   - 系统验证 MCP 中心是否可用
+   - 确认指定的服务器存在且已连接
+   - 验证请求的工具在服务器上是否存在
+   - 根据工具的模式定义验证参数
+   - 从服务器配置中提取超时设置（默认值：60 秒）
+
+2. **执行和通信**：
+   - 系统选择适当的传输机制：
+     - `StdioClientTransport`：用于通过标准 I/O 与本地进程通信
+     - `SSEClientTransport`：用于通过服务器发送事件与 HTTP 服务器通信
+     - `StreamableHTTPClientTransport`：用于通过可流式 HTTP 事件与 HTTP 服务器通信
+   - 发送包含已验证服务器名称、工具名称和参数的请求
+   - 通信使用 `@modelcontextprotocol/sdk` 库进行标准化交互
+   - 请求执行会进行跟踪，并带有超时处理以防止挂起操作
+
+3. **响应处理**：
+   - 响应可以包含多种内容类型：
+     - 文本内容：纯文本响应
+     - 图像内容：带有 MIME 类型信息的二进制图像数据
+     - 资源引用：访问服务器资源的 URI（与 `access_mcp_resource` 配合使用）
+   - 系统检查 `isError` 标志以确定是否需要错误处理
+   - 结果会被格式化以在 Roo 界面中显示
+
+4. **资源和错误处理**：
+   - 系统使用 WeakRef 模式来防止内存泄漏
+   - 连续错误计数器跟踪和管理错误
+   - 文件监视器监视服务器代码更改并触发自动重启
+   - 安全模型要求在执行工具前进行批准，除非在“始终允许”列表中
+
+---
+
+## 安全和权限
+
+MCP 架构提供了多种安全功能：
+
+- 用户必须在执行前批准工具使用（默认情况下）
+- 可以在“始终允许”列表中标记特定工具以进行自动批准
+- 服务器配置使用 Zod 模式进行验证以确保完整性
+- 可配置的超时可防止挂起操作（1-3600 秒）
+- 可以通过 UI 启用或禁用服务器连接
+
+---
+
+## 使用示例
+
+- 使用服务器端处理工具分析专业数据格式
+- 通过托管在外部服务器上的 AI 模型生成图像或其他媒体
+- 执行复杂的领域特定计算而无需本地实现
+- 通过受控接口访问专有 API 或服务
+- 从专业数据库或数据源检索数据
+
+---
+
+## 使用示例
+
+请求带有文本响应的天气预报数据：
 ```
 <use_mcp_tool>
 <server_name>weather-server</server_name>
@@ -158,7 +158,7 @@ Requesting weather forecast data with text response:
 </use_mcp_tool>
 ```
 
-Analyzing source code with a specialized tool that returns JSON:
+使用返回 JSON 的专业工具分析源代码：
 ```
 <use_mcp_tool>
 <server_name>code-analysis</server_name>
@@ -174,7 +174,7 @@ Analyzing source code with a specialized tool that returns JSON:
 </use_mcp_tool>
 ```
 
-Generating an image with specific parameters:
+生成具有特定参数的图像：
 ```
 <use_mcp_tool>
 <server_name>image-generation</server_name>
@@ -193,7 +193,7 @@ Generating an image with specific parameters:
 </use_mcp_tool>
 ```
 
-Accessing a resource through a tool that returns a resource reference:
+通过返回资源引用的工具访问资源：
 ```
 <use_mcp_tool>
 <server_name>database-connector</server_name>

@@ -1,108 +1,108 @@
 ---
-description: Learn how the list_files tool helps Roo Code explore project structures, list directories, and navigate codebases with recursive and filtered listing capabilities.
-keywords:
+描述: 了解 list_files 工具如何帮助 Roo Code 探索项目结构、列出目录并使用递归和过滤列表功能导航代码库。
+关键词:
   - list_files
-  - Roo Code tools
-  - directory listing
-  - file exploration
-  - project structure
-  - recursive listing
-  - codebase navigation
+  - Roo Code 工具
+  - 目录列表
+  - 文件探索
+  - 项目结构
+  - 递归列表
+  - 代码库导航
   - VS Code AI
 image: /img/social-share.jpg
 ---
 
-# list_files
+# 列出文件
 
-The `list_files` tool displays the files and directories within a specified location. It helps Roo understand your project structure and navigate your codebase effectively.
-
----
-
-## Parameters
-
-The tool accepts these parameters:
-
-- `path` (required): The path of the directory to list contents for, relative to the current working directory
-- `recursive` (optional): Whether to list files recursively. Use `true` for recursive listing, `false` or omit for top-level only.
+`list_files` 工具显示指定位置内的文件和目录。它帮助 Roo 了解您的项目结构并有效地导航您的代码库。
 
 ---
 
-## What It Does
+## 参数
 
-This tool lists all files and directories in a specified location, providing a clear overview of your project structure. It can either show just the top-level contents or recursively explore subdirectories.
+该工具接受以下参数:
 
----
-
-## When is it used?
-
-- When Roo needs to understand your project structure
-- When Roo explores what files are available before reading specific ones
-- When Roo maps a codebase to better understand its organization
-- Before using more targeted tools like `read_file` or `search_files`
-- When Roo needs to check for specific file types (like configuration files) across a project
+- `path` (必需): 要列出内容的目录路径，相对于当前工作目录
+- `recursive` (可选): 是否递归列出文件。使用 `true` 进行递归列表，使用 `false` 或省略以仅列出顶层。
 
 ---
 
-## Key Features
+## 功能
 
-- Lists both files and directories with directories clearly marked
-- Offers both recursive and non-recursive listing modes
-- Intelligently ignores common large directories like `node_modules` and `.git` in recursive mode
-- Respects `.gitignore` rules when in recursive mode
-- Marks files ignored by `.rooignore` with a lock symbol (🔒) when `showRooIgnoredFiles` is enabled
-- Optimizes file listing performance by leveraging the `ripgrep` tool.
-- Sorts results to show directories before their contents, maintaining a logical hierarchy
-- Presents results in a clean, organized format
-- Automatically creates a mental map of your project structure
+此工具列出指定位置的所有文件和目录，提供项目结构的清晰概览。它可以仅显示顶层内容或递归探索子目录。
 
 ---
 
-## Limitations
+## 使用场景
 
-- File listing is capped at about 200 files by default to prevent performance issues
-- The underlying `ripgrep` file listing process has a 10-second timeout; if exceeded, partial results may be returned.
-- When the file limit is hit, it adds a note suggesting to use `list_files` on specific subdirectories
-- Not designed for confirming the existence of files you've just created
-- May have reduced performance in very large directory structures
-- Cannot list files in root or home directories for security reasons
-
----
-
-## How It Works
-
-When the `list_files` tool is invoked, it follows this process:
-
-1. **Parameter Validation**: Validates the required `path` parameter and optional `recursive` parameter
-2. **Path Resolution**: Resolves the relative path to an absolute path
-3. **Security Checks**: Prevents listing files in sensitive locations like root or home directories
-4. **Directory/File Scanning**:
-   - Uses the `ripgrep` tool to efficiently list files, applying a 10-second timeout.
-   - Uses Node.js `fs` module to list directories.
-   - Applies different filtering logic for recursive vs. non-recursive modes.
-5. **Result Filtering**:
-   - In recursive mode, skips common large directories like `node_modules`, `.git`, etc.
-   - Respects `.gitignore` rules when in recursive mode
-   - Handles `.rooignore` patterns, either hiding files or marking them with a lock symbol
-6. **Formatting**:
-   - Marks directories with a trailing slash (`/`)
-   - Sorts results to show directories before their contents for logical hierarchy
-   - Marks ignored files with a lock symbol (🔒) when `showRooIgnoredFiles` is enabled
-   - Caps results at 200 files by default with a note about using subdirectories
-   - Organizes results for readability
+- 当 Roo 需要了解您的项目结构时
+- 当 Roo 在阅读特定文件之前探索可用文件时
+- 当 Roo 映射代码库以更好地了解其组织时
+- 在使用更针对性的工具（如 `read_file` 或 `search_files`）之前
+- 当 Roo 需要检查项目中特定文件类型（如配置文件）时
 
 ---
 
-## File Listing Format
+## 主要特性
 
-The file listing results include:
+- 列出文件和目录，并清楚地标记目录
+- 提供递归和非递归列表模式
+- 在递归模式下智能忽略常见的大型目录，如 `node_modules` 和 `.git`
+- 在递归模式下遵守 `.gitignore` 规则
+- 当启用 `showRooIgnoredFiles` 时，用锁符号 (🔒) 标记被 `.rooignore` 忽略的文件
+- 通过利用 `ripgrep` 工具优化文件列表性能。
+- 对结果进行排序，以在内容之前显示目录，保持逻辑层次结构
+- 以干净、有组织的格式呈现结果
+- 自动创建项目结构的心理地图
 
-- Each file path is displayed on its own line
-- Directories are marked with a trailing slash (`/`)
-- Files ignored by `.rooignore` are marked with a lock symbol (🔒) when `showRooIgnoredFiles` is enabled
-- Results are sorted logically with directories appearing before their contents
-- When the file limit is reached, a message appears suggesting to use `list_files` on specific subdirectories
+---
 
-Example output format:
+## 限制
+
+- 默认情况下，文件列表上限约为 200 个文件，以防止性能问题
+- 底层的 `ripgrep` 文件列表过程有 10 秒超时；如果超时，可能会返回部分结果。
+- 当达到文件限制时，会添加一条建议在特定子目录上使用 `list_files` 的注释
+- 不适用于确认您刚刚创建的文件的存在
+- 在非常大的目录结构中可能性能降低
+- 出于安全原因，无法列出根目录或主目录中的文件
+
+---
+
+## 工作原理
+
+调用 `list_files` 工具时，它遵循以下过程:
+
+1. **参数验证**: 验证必需的 `path` 参数和可选的 `recursive` 参数
+2. **路径解析**: 将相对路径解析为绝对路径
+3. **安全检查**: 防止列出根目录或主目录等敏感位置的文件
+4. **目录/文件扫描**:
+   - 使用 `ripgrep` 工具高效地列出文件，并应用 10 秒超时。
+   - 使用 Node.js `fs` 模块列出目录。
+   - 为递归和非递归模式应用不同的过滤逻辑。
+5. **结果过滤**:
+   - 在递归模式下，跳过常见的大型目录，如 `node_modules`、`.git` 等。
+   - 在递归模式下遵守 `.gitignore` 规则
+   - 处理 `.rooignore` 模式，要么隐藏文件，要么用锁符号标记它们
+6. **格式化**:
+   - 用尾部斜杠 (`/`) 标记目录
+   - 对结果进行排序，以在内容之前显示目录，保持逻辑层次结构
+   - 当启用 `showRooIgnoredFiles` 时，用锁符号 (🔒) 标记被忽略的文件
+   - 默认情况下将结果上限设为 200 个文件，并附上关于使用子目录的注释
+   - 为可读性组织结果
+
+---
+
+## 文件列表格式
+
+文件列表结果包括:
+
+- 每个文件路径显示在单独的行上
+- 目录用尾部斜杠 (`/`) 标记
+- 当启用 `showRooIgnoredFiles` 时，被 `.rooignore` 忽略的文件用锁符号 (🔒) 标记
+- 结果按逻辑排序，目录出现在其内容之前
+- 当达到文件限制时，会出现一条消息，建议在特定子目录上使用 `list_files`
+
+示例输出格式:
 ```
 src/
 src/components/
@@ -112,10 +112,10 @@ src/utils/
 src/utils/helpers.ts
 src/index.ts
 ...
-File listing truncated (showing 200 of 543 files). Use list_files on specific subdirectories for more details.
+文件列表已截断（显示 200 个文件中的 543 个）。请在特定子目录上使用 list_files 以获取更多详细信息。
 ```
 
-When `.rooignore` files are used and `showRooIgnoredFiles` is enabled:
+当使用 `.rooignore` 文件且启用 `showRooIgnoredFiles` 时:
 ```
 src/
 src/components/
@@ -129,25 +129,25 @@ src/index.ts
 
 ---
 
-## Examples When Used
+## 使用示例
 
-- When starting a new task, Roo may list the project files to understand its structure before diving into specific code.
-- When asked to find specific types of files (like all JavaScript files), Roo first lists directories to know where to look.
-- When providing recommendations for code organization, Roo examines the current project structure first.
-- When setting up a new feature, Roo lists related directories to understand the project conventions.
+- 当开始新任务时，Roo 可能会列出项目文件以了解其结构，然后再深入特定代码。
+- 当被要求查找特定类型的文件（如所有 JavaScript 文件）时，Roo 首先列出目录以知道在哪里查找。
+- 当提供代码组织建议时，Roo 首先检查当前项目结构。
+- 当设置新功能时，Roo 列出相关目录以了解项目约定。
 
 ---
 
-## Usage Examples
+## 使用示例
 
-Listing top-level files in the current directory:
+列出当前目录中的顶层文件:
 ```
 <list_files>
 <path>.</path>
 </list_files>
 ```
 
-Recursively listing all files in a source directory:
+递归列出源目录中的所有文件:
 ```
 <list_files>
 <path>src</path>
@@ -155,7 +155,7 @@ Recursively listing all files in a source directory:
 </list_files>
 ```
 
-Examining a specific project subdirectory:
+检查特定项目子目录:
 ```
 <list_files>
 <path>src/components</path>

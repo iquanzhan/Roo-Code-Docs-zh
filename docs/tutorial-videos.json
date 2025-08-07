@@ -2,47 +2,43 @@
   "videos": [
     {
       "id": "Mcq3r1EPZ-4",
-      "title": "Installing Roo Code"
+      "title": "安装 Roo Code"
     },
     {
       "id": "eEJErgZBqLE",
-      "title": "Configuring Profiles"
+      "title": "配置配置文件"
     },
     {
       "id": "QDy3dm1xJ6Y",
-      "title": "Setting up MCP Servers"
+      "title": "设置 MCP 服务器"
     },
     {
       "id": "jW4_PPyRXCs",
-      "title": "Auto Approve Feature"
+      "title": "自动批准功能"
     },
     {
       "id": "qgqceCuhlRA",
-      "title": "Custom Modes"
+      "title": "自定义模式"
     },
     {
       "id": "Ho30nyY332E",
-      "title": "Checkpoints"
+      "title": "检查点"
     },
     {
       "id": "r1bpod1VWhg",
-      "title": "Codebase Indexing"
+      "title": "代码库索引"
     },
     {
       "id": "9k8OAXlszak",
-      "title": "Context Condensing"
+      "title": "上下文压缩"
     },
     {
       "id": "WatooxMlW0U",
-      "title": "Roo Marketplace"
+      "title": "Roo 市场"
     },
     {
       "id": "6h5vB9PpoPk",
-      "title": "Todo Lists"
-    },
-    {
-      "id": "IOpmeUGLpg0",
-      "title": "Slash Commands"
+      "title": "待办事项列表"
     }
   ]
 }

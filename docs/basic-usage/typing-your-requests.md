@@ -1,65 +1,63 @@
 ---
-description: Learn how to effectively communicate with Roo Code using natural language. Best practices for typing requests, examples, and common pitfalls to avoid.
+description: 学习如何为 Roo Code 编写有效的请求，以获得最佳结果。了解具体性、提供上下文、分解任务和包含示例的重要性。
 keywords:
-  - Roo Code requests
-  - natural language AI
-  - typing commands
-  - AI communication
-  - request examples
-  - best practices
+  - "Roo Code 请求"
+  - "有效请求"
+  - "AI 提示"
+  - "请求策略"
 image: /img/social-share.jpg
 ---
 
-# Typing Your Requests
+# 编写您的请求
 
-Roo Code is designed to understand natural language.  You don't need to use any special commands or syntax to communicate with it.  Just type your request in plain English, as if you were talking to a human developer.
+为了从 Roo Code 获得最佳结果，编写清晰、具体的请求非常重要。以下是一些策略，可帮助您更有效地与 AI 助手沟通。
 
-<img src="/img/typing-your-requests/naturally.gif" alt="Example of typing a request in Roo Code" width="600" />
+## 策略
+
+1. **具体性**：明确说明您想要 Roo Code 做什么。避免模糊的请求，例如“修复我的代码”。相反，请说“修复 `src/App.js` 中的语法错误”。
+2. **提供上下文**：包括相关的文件、文件夹或问题，以帮助 Roo Code 理解您的请求。使用上下文提及相关功能。
+3. **分解任务**：对于复杂的任务，将其分解为更小、更易于管理的步骤。这有助于 Roo Code 更好地理解和执行。
+4. **包含示例**：如果可能，请提供您想要实现的示例或参考。这可以是代码片段、设计或任何其他相关材料。
+
+## 示例
+
+以下是一些有效请求的示例：
+
+* "在 `src/components/Header.js` 中添加一个带有徽标的导航栏。"
+* "优化 `src/utils/calculate.js` 中的 `calculateSum` 函数以提高性能。"
+* "根据 `src/styles/theme.css` 中的样式创建一个响应式卡片组件。"
+
+## 避免常见错误
+
+* **过于宽泛**：避免像“改进我的应用程序”这样的一般性请求。请具体说明您想要改进的内容。
+* **缺乏上下文**：确保提供足够的信息，以便 Roo Code 能够理解您的请求。使用上下文提及相关功能。
+* **忽略反馈**：如果 Roo Code 要求澄清，请提供必要的信息。忽略反馈可能会导致结果不准确。
+
+创建一个名为 `utils.py` 的新文件，并添加一个名为 `add` 的函数，该函数接受两个数字作为参数并返回它们的和
+```
+在文件 @src/components/Button.tsx 中，将按钮的颜色更改为蓝色
+```
+```
+在 @/src/App.js 中找到变量 `oldValue` 的所有实例，并将其替换为 `newValue`
+```
+```
+在终端中运行 `npm install` 命令
+```
+```
+解释 @/src/utils.ts 中的 `calculateTotal` 函数
+```
+```
+@problems 解决所有检测到的问题
+```
 
 ---
 
-## Effective Request Strategies
+## 要避免的常见陷阱
 
-Clearly state what you want Roo Code to do.  Avoid vague or ambiguous language.
-
-| Strategy | Implementation |
-|----------|----------------|
-| **Be specific** | "Fix the bug in `calculateTotal` that returns incorrect results" instead of "Fix the code" |
-| **Provide context** | Use @ [Context Mentions](/basic-usage/context-mentions) for file and code references |
-| **Break down tasks** | Submit complex tasks in smaller manageable steps |
-| **Include examples** | Provide sample code when you need specific formatting or style |
-
----
-
-## Example Requests
-
-```
-create a new file named `utils.py` and add a function called `add` that takes two numbers as arguments and returns their sum
-```
-```
-in the file @src/components/Button.tsx, change the color of the button to blue
-```
-```
-find all instances of the variable `oldValue` in @/src/App.js and replace them with `newValue`
-```
-```
-run the command `npm install` in the terminal
-```
-```
-explain the function `calculateTotal` in @/src/utils.ts
-```
-```
-@problems address all detected problems
-```
-
----
-
-## Common Pitfalls to Avoid
-
-| DON'T | DO |
-|-------|---------|
-| Vague requests | Specify exactly what needs to be done |
-| Assuming context | Explicitly reference files and functions |
-| Excessive technical jargon | Use clear, straightforward language |
-| Multiple unrelated tasks | Submit one focused request at a time |
-| Proceeding without confirmation | Check the code to make sure it's complete |
+| 不要这样做 | 应该这样做 |
+|----------|-------------|
+| 模糊的请求 | 明确说明需要做什么 |
+| 假设上下文 | 明确引用文件和函数 |
+| 过多的技术术语 | 使用清晰、直白的语言 |
+| 多个不相关的任务 | 一次提交一个专注的请求 |
+| 未经确认继续进行 | 检查代码以确保其完整 |

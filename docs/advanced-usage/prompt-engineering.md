@@ -1,114 +1,114 @@
 ---
-description: Master the art of writing effective prompts for Roo Code. Learn principles, techniques, and examples to get better AI coding assistance results.
+description: 掌握为 Roo Code 编写有效提示的技巧。学习原则、技术和示例，以获得更好的 AI 编程辅助结果。
 keywords:
-  - prompt engineering
-  - AI prompts
-  - effective communication
-  - Roo Code tips
-  - custom instructions
+  - 提示工程
+  - AI 提示
+  - 有效沟通
+  - Roo Code 技巧
+  - 自定义指令
 image: /img/social-share.jpg
 ---
 
-# Prompt Engineering Tips
+# 提示工程技巧
 
-Prompt engineering is the art of crafting effective instructions for AI models like Roo Code.  Well-written prompts lead to better results, fewer errors, and a more efficient workflow.
-
----
-
-## General Principles
-
-*   **Be Clear and Specific:** Clearly state what you want Roo Code to do. Avoid ambiguity.
-    *   **Bad:** Fix the code.
-    *   **Good:** Fix the bug in the `calculateTotal` function that causes it to return incorrect results.
-
-*   **Provide Context:** Use [Context Mentions](/basic-usage/context-mentions) to refer to specific files, folders, or problems.
-    *   **Good:** `@/src/utils.ts` Refactor the `calculateTotal` function to use async/await.
-
-*   **Break Down Tasks:** Divide complex tasks into smaller, well-defined steps.
-
-*   **Give Examples:** If you have a specific coding style or pattern in mind, provide examples.
-
-*   **Specify Output Format:** If you need the output in a particular format (e.g., JSON, Markdown), specify it in the prompt.
-
-*   **Iterate:** Don't be afraid to refine your prompt if the initial results aren't what you expect.
+提示工程是为 Roo Code 等 AI 模型编写有效指令的艺术。编写良好的提示可以带来更好的结果、更少的错误和更高效的工作流程。
 
 ---
 
-## Thinking vs. Doing
+## 通用原则
 
-It's often helpful to guide Roo Code through a "think-then-do" process:
+*   **清晰具体：** 清楚地说明你希望 Roo Code 做什么。避免歧义。
+    *   **不好：** 修复代码。
+    *   **好：** 修复 `calculateTotal` 函数中的错误，该错误导致它返回不正确的结果。
 
-1.  **Analyze:** Ask Roo Code to analyze the current code, identify problems, or plan the approach.
-2.  **Plan:**  Have Roo Code outline the steps it will take to complete the task.
-3.  **Execute:**  Instruct Roo Code to implement the plan, one step at a time.
-4.  **Review:**  Carefully review the results of each step before proceeding.
+*   **提供上下文：** 使用 [上下文提及](/basic-usage/context-mentions) 来引用特定的文件、文件夹或问题。
+    *   **好：** `@/src/utils.ts` 重构 `calculateTotal` 函数以使用 async/await。
 
----
+*   **分解任务：** 将复杂的任务分解为更小、定义明确的步骤。
 
-## Using Custom Instructions
+*   **给出示例：** 如果你有特定的编码风格或模式，请提供示例。
 
-You can provide custom instructions to further tailor Roo Code's behavior. There are two types of custom instructions:
+*   **指定输出格式：** 如果你需要特定格式的输出（例如 JSON、Markdown），请在提示中指定。
 
-*   **Global Custom Instructions:** Apply to all modes.
-*   **Mode-Specific Custom Instructions:** Apply only to a specific mode (e.g., Code, Architect, Ask, Debug, or a custom mode).
-
-Custom instructions are added to the system prompt, providing persistent guidance to the AI model. You can use these to:
-
-*   Enforce coding style guidelines.
-*   Specify preferred libraries or frameworks.
-*   Define project-specific conventions.
-*   Adjust Roo Code's tone or personality.
-
-See the [Custom Instructions](/features/custom-instructions) section for more details.
+*   **迭代：** 如果初始结果不符合预期，不要害怕修改你的提示。
 
 ---
 
-## Handling Ambiguity
+## 思考与执行
 
-If your request is ambiguous or lacks sufficient detail, Roo Code might:
+引导 Roo Code 通过“先思考后执行”的过程通常很有帮助：
 
-*   **Make Assumptions:**  It might proceed based on its best guess, which may not be what you intended.
-*   **Ask Follow-Up Questions:** It might use the `ask_followup_question` tool to clarify your request.
-
-It's generally better to provide clear and specific instructions from the start to avoid unnecessary back-and-forth.
-
----
-
-## Providing Feedback
-
-If Roo Code doesn't produce the desired results, you can provide feedback by:
-
-*   **Rejecting Actions:** Click the "Reject" button when Roo Code proposes an action you don't want.
-*   **Providing Explanations:** When rejecting, explain *why* you're rejecting the action.  This helps Roo Code learn from its mistakes.
-*   **Rewording Your Request:** Try rephrasing your initial task or providing more specific instructions.
-*   **Manually Correcting:** If there are a few small issues, you can also directly modify the code before accepting the changes.
+1.  **分析：** 要求 Roo Code 分析当前代码，识别问题，或规划方法。
+2.  **计划：** 让 Roo Code 概述完成任务将采取的步骤。
+3.  **执行：** 指示 Roo Code 实施计划，一次一个步骤。
+4.  **审查：** 在继续之前，仔细审查每个步骤的结果。
 
 ---
 
-## Examples
+## 使用自定义指令
 
-**Good Prompt:**
+你可以提供自定义指令来进一步定制 Roo Code 的行为。有两种类型的自定义指令：
 
-> `@/src/components/Button.tsx` Refactor the `Button` component to use the `useState` hook instead of the `useReducer` hook.
+*   **全局自定义指令：** 应用于所有模式。
+*   **模式特定的自定义指令：** 仅应用于特定模式（例如，代码、架构师、询问、调试或自定义模式）。
 
-**Bad Prompt:**
+自定义指令被添加到系统提示中，为 AI 模型提供持续的指导。你可以使用这些来：
 
-> Fix the button.
+*   强制执行编码风格指南。
+*   指定首选的库或框架。
+*   定义项目特定的约定。
+*   调整 Roo Code 的语调或个性。
 
-**Good Prompt:**
+有关更多详细信息，请参见 [自定义指令](/features/custom-instructions) 部分。
 
-> Create a new file named `utils.py` and add a function called `calculate_average` that takes a list of numbers and returns their average.
+---
 
-**Bad Prompt:**
+## 处理歧义
 
-> Write some Python code.
+如果你的请求含糊不清或缺乏足够的细节，Roo Code 可能会：
 
-**Good Prompt:**
+*   **做出假设：** 它可能会基于其最佳猜测继续进行，而这可能不是你的意图。
+*   **提出后续问题：** 它可能会使用 `ask_followup_question` 工具来澄清你的请求。
 
-> `@problems` Address all errors and warnings in the current file.
+通常最好从一开始就提供清晰具体的指令，以避免不必要的来回沟通。
 
-**Bad Prompt:**
+---
 
-> Fix everything.
+## 提供反馈
 
-By following these tips, you can write effective prompts that get the most out of Roo Code's capabilities.
+如果 Roo Code 没有产生预期的结果，你可以通过以下方式提供反馈：
+
+*   **拒绝操作：** 当 Roo Code 提出你不想要的操作时，点击“拒绝”按钮。
+*   **提供解释：** 拒绝时，解释 *为什么* 你拒绝该操作。这有助于 Roo Code 从错误中学习。
+*   **重新措词你的请求：** 尝试重新表述你的初始任务或提供更具体的指令。
+*   **手动纠正：** 如果只有几个小问题，你也可以在接受更改之前直接修改代码。
+
+---
+
+## 示例
+
+**好提示：**
+
+> `@/src/components/Button.tsx` 重构 `Button` 组件以使用 `useState` 钩子而不是 `useReducer` 钩子。
+
+**差提示：**
+
+> 修复按钮。
+
+**好提示：**
+
+> 创建一个名为 `utils.py` 的新文件，并添加一个名为 `calculate_average` 的函数，该函数接受一个数字列表并返回它们的平均值。
+
+**差提示：**
+
+> 写一些 Python 代码。
+
+**好提示：**
+
+> `@problems` 解决当前文件中的所有错误和警告。
+
+**差提示：**
+
+> 修复一切。
+
+通过遵循这些提示，你可以编写有效的提示，充分利用 Roo Code 的功能。

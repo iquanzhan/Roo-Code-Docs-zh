@@ -1,69 +1,34 @@
 ---
-description: Learn how to use the Roo Code chat interface effectively. Understand the layout, features, and best practices for communicating with your AI coding assistant.
+description: 了解 Roo Code 聊天界面的组件和功能，包括聊天历史、输入框、操作按钮以及如何有效使用它们。
 keywords:
-  - Roo Code chat interface
-  - AI assistant interaction
-  - chat features
-  - user interface
-  - VS Code extension
+  - "Roo Code 聊天界面"
+  - "聊天历史"
+  - "输入框"
+  - "操作按钮"
+  - "用户交互"
 image: /img/social-share.jpg
 ---
 
-import KangarooIcon from '@site/src/components/KangarooIcon';
+# 聊天界面
 
-# The Chat Interface
+Roo Code 的聊天界面是您与 AI 助手交互的主要方式。它直观且功能丰富，旨在提供流畅的用户体验。
 
-The Roo Code chat interface is your primary way of interacting with it. It's located in the Roo Code panel, which you can open by clicking the Roo Code icon (<KangarooIcon />) in the VS Code Activity Bar.
+## 组件
 
----
+聊天界面由以下几个关键组件组成：
 
-## Components of the Chat Interface
+1. **聊天历史**：显示您与 Roo Code 之间的所有对话。您可以在此查看之前的请求和响应，方便回顾和继续讨论。
+2. **输入框**：您在此输入请求或问题。支持多行输入，您可以按 `Enter` 发送消息，或按 `Shift + Enter` 换行。
+3. **操作按钮**：位于输入框附近，提供快速访问常用功能的按钮，例如清除聊天历史、导出对话等。
 
-The chat interface consists of the following main elements:
+## 使用次要侧边栏
 
-1. **Chat History:** This area displays the conversation history between you and Roo Code.  It shows your requests, Roo Code's responses, and any actions taken (like file edits or command executions).
+聊天界面可以停靠在 VS Code 的次要侧边栏中。要访问它，请点击活动栏中的 Roo Code 图标，或使用快捷键 `Ctrl+Shift+P` 并搜索 "Roo Code: 打开聊天"。
 
-2. **Input Field:** This is where you type your tasks and questions for Roo Code.  You can use plain English to communicate.
+## 消息交互
 
-3. **Action Buttons:** These buttons appear above the input field and allow you to approve or reject Roo Code's proposed actions.  The available buttons change depending on the context.
+您可以通过在输入框中键入消息与 Roo Code 交互。Roo Code 会分析您的请求并提供相应的响应。您还可以使用上下文提及相关功能来增强交互效果。
 
-4. **Send Button:** This looks like a small plane and it's located to the far right of the input field. This sends messages to Roo after you've typed them.
+## 状态指示器
 
-5. **Plus Button:** The plus button is located at the top in the header, and it resets the current session.
-
-6. **Settings Button:** The settings button is a gear, and it's used for opening the settings to customize features or behavior.
-
-7. **Mode Selector:** The mode selector is a dropdown located to the left of the chat input field. It is used for selecting which mode Roo should use for your tasks.
-
-<img src="/img/the-chat-interface/the-chat-interface-1.png" alt="Chat interface components labeled with numbered callouts" width="900" />
-
-*Numbered interface elements showing the key components of the Roo Code chat interface.*
-
----
-
-## Tip: Using the Secondary Sidebar
-
-For a better workflow, you can drag Roo Code to VS Code's [Secondary Sidebar](https://code.visualstudio.com/api/ux-guidelines/sidebars#secondary-sidebar). This allows you to keep Roo Code visible while still having access to the Explorer, Search, Source Control, and other panels in the primary sidebar.
-
-To set this up:
-1. Click and drag the Roo Code icon from the Activity Bar
-2. Drop it on the right side of your editor to create a secondary sidebar
-3. Now you can use both sidebars simultaneously!
-
-For more productivity tips, check out our [Tips & Tricks](/tips-and-tricks) guide.
-
----
-
-## Interacting with Messages
-
-* **Clickable Links:** File paths, URLs, and other mentions in the chat history are clickable.  Clicking a file path will open the file in the editor.  Clicking a URL will open it in your default browser.
-* **Copying Text:** You can copy text from the chat history by selecting it and using the standard copy command (Ctrl/Cmd + C).  Some elements, like code blocks, have a dedicated "Copy" button.
-* **Expanding and Collapsing**: Click on a message to expand or collapse it.
-
----
-
-## Status Indicators
-
-* **Loading Spinner:**  When Roo Code is processing a request, you'll see a loading spinner.
-* **Error Messages:**  If an error occurs, a red error message will be displayed.
-* **Success Messages:** Green messages indicate successful completion of actions.
+聊天界面包含状态指示器，用于显示 Roo Code 的当前状态，例如正在处理请求或等待用户输入。这有助于您了解交互的进度。

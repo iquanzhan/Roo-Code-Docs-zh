@@ -1,73 +1,73 @@
 ---
-description: 'Explore all Roo Code features including AI-powered coding assistance, multi-file editing, codebase indexing, MCP integration, custom modes, and experimental capabilities.'
+description: '探索所有 Roo Code 功能，包括 AI 驱动的编码辅助、多文件编辑、代码库索引、MCP 集成、自定义模式和实验功能。'
 keywords:
-  - Roo Code features
-  - AI coding assistant
-  - code editing
-  - developer tools
-  - VS Code extension
-  - MCP integration
-  - custom modes
-  - experimental features
+  - Roo Code 功能
+  - AI 编码助手
+  - 代码编辑
+  - 开发者工具
+  - VS Code 扩展
+  - MCP 集成
+  - 自定义模式
+  - 实验功能
 image: /img/social-share.jpg
-sidebar_label: 'Features Overview'
+sidebar_label: '功能概览'
 ---
 
-# Roo Code Features
+# Roo Code 功能
 
-Discover the powerful features that make Roo Code your ultimate AI-powered coding assistant. From intelligent code editing to advanced integrations, Roo Code enhances your development workflow.
+发现强大的功能，让 Roo Code 成为您终极的 AI 驱动编码助手。从智能代码编辑到高级集成，Roo Code 增强您的开发工作流程。
 
-## Core Features
+## 核心功能
 
-### Code Editing & Navigation
-- [**Fast Edits**](/features/fast-edits) - Lightning-fast code modifications with intelligent diff application
-- [**Concurrent File Reads**](/features/concurrent-file-reads) - Read multiple files simultaneously for better context
-- [**Code Actions**](/features/code-actions) - Quick fixes and refactoring suggestions
-- [**Diagnostics Integration**](/features/diagnostics-integration) - Real-time error detection and resolution
+### 代码编辑与导航
+- [**快速编辑**](/features/fast-edits) - 通过智能差异应用实现闪电般的代码修改
+- [**并发文件读取**](/features/concurrent-file-reads) - 同时读取多个文件以获得更好的上下文
+- [**代码操作**](/features/code-actions) - 快速修复和重构建议
+- [**诊断集成**](/features/diagnostics-integration) - 实时错误检测和解决
 
-### AI Enhancements
-- [**Codebase Indexing**](/features/codebase-indexing) - Semantic search across your entire codebase
-- [**Enhance Prompt**](/features/enhance-prompt) - Automatically improve your prompts for better results
-- [**Suggested Responses**](/features/suggested-responses) - Context-aware follow-up suggestions
-- [**Model Temperature**](/features/model-temperature) - Fine-tune AI creativity and consistency
+### AI 增强功能
+- [**代码库索引**](/features/codebase-indexing) - 在整个代码库中进行语义搜索
+- [**增强提示**](/features/enhance-prompt) - 自动改进您的提示以获得更好的结果
+- [**建议响应**](/features/suggested-responses) - 上下文感知的后续建议
+- [**模型温度**](/features/model-temperature) - 微调 AI 的创造力和一致性
 
-### Workflow Management
-- [**Task Todo List**](/features/task-todo-list) - Track progress on complex multi-step tasks
-- [**Checkpoints**](/features/checkpoints) - Save and restore conversation states
-- [**Boomerang Tasks**](/features/boomerang-tasks) - Reusable task templates
-- [**Custom Modes**](/features/custom-modes) - Create specialized AI assistants for specific workflows
+### 工作流程管理
+- [**任务待办列表**](/features/task-todo-list) - 跟踪复杂多步骤任务的进度
+- [**检查点**](/features/checkpoints) - 保存和恢复对话状态
+- [**回旋镖任务**](/features/boomerang-tasks) - 可重用的任务模板
+- [**自定义模式**](/features/custom-modes) - 为特定工作流程创建专门的 AI 助手
 
-### Configuration & Customization
-- [**API Configuration Profiles**](/features/api-configuration-profiles) - Manage multiple API configurations
-- [**Custom Instructions**](/features/custom-instructions) - Personalize AI behavior
-- [**Settings Management**](/features/settings-management) - Fine-tune Roo Code to your preferences
-- [**.rooignore**](/features/rooignore) - Control file access and visibility
+### 配置与自定义
+- [**API 配置文件**](/features/api-configuration-profiles) - 管理多个 API 配置
+- [**自定义指令**](/features/custom-instructions) - 个性化 AI 行为
+- [**设置管理**](/features/settings-management) - 根据您的偏好微调 Roo Code
+- [**.rooignore**](/features/rooignore) - 控制文件访问和可见性
 
-### Integration Features
-- [**MCP (Model Context Protocol)**](/features/mcp/overview) - Connect to external tools and services
-- [**Browser Use**](/features/browser-use) - Web automation and interaction capabilities
-- [**Shell Integration**](/features/shell-integration) - Seamless terminal command execution
-- [**Marketplace**](/features/marketplace) - Discover and share custom modes
+### 集成功能
+- [**MCP (模型上下文协议)**](/features/mcp/overview) - 连接到外部工具和服务
+- [**浏览器使用**](/features/browser-use) - 网络自动化和交互功能
+- [**Shell 集成**](/features/shell-integration) - 无缝终端命令执行
+- [**市场**](/features/marketplace) - 发现和分享自定义模式
 
-### Productivity Tools
-- [**Auto-Approving Actions**](/features/auto-approving-actions) - Streamline repetitive approvals
-- [**Keyboard Shortcuts**](/features/keyboard-shortcuts) - Speed up common actions
-- [**Intelligent Context Condensing**](/features/intelligent-context-condensing) - Optimize token usage
+### 生产力工具
+- [**自动批准操作**](/features/auto-approving-actions) - 简化重复性批准
+- [**键盘快捷键**](/features/keyboard-shortcuts) - 加速常见操作
+- [**智能上下文压缩**](/features/intelligent-context-condensing) - 优化令牌使用
 
-## Experimental Features
+## 实验功能
 
-Push the boundaries with cutting-edge capabilities:
+通过前沿功能突破界限：
 
-- [**Concurrent File Edits**](/features/experimental/concurrent-file-edits) - Edit multiple files in a single operation
-- [**Power Steering**](/features/experimental/power-steering) - Enhanced consistency in AI responses
-- [**More Experimental Features**](/features/experimental/experimental-features) - Explore features under development
+- [**并发文件编辑**](/features/experimental/concurrent-file-edits) - 在单个操作中编辑多个文件
+- [**动力转向**](/features/experimental/power-steering) - 增强 AI 响应的一致性
+- [**更多实验功能**](/features/experimental/experimental-features) - 探索正在开发中的功能
 
-## Additional Resources
+## 其他资源
 
-- [**More Features**](/features/more-features) - Discover additional capabilities
-- [**Tips & Tricks**](/tips-and-tricks) - Get the most out of Roo Code
-- [**FAQ**](/faq) - Common questions answered
+- [**更多功能**](/features/more-features) - 发现其他功能
+- [**提示与技巧**](/tips-and-tricks) - 充分利用您的 Roo Code
+- [**常见问题解答**](/faq) - 常见问题解答
 
 ---
 
-Ready to explore? Start with our [Getting Started Guide](/getting-started/installing) or dive into any feature that interests you!
+准备好探索了吗？从我们的 [入门指南](/getting-started/installing) 开始，或深入了解您感兴趣的任何功能！

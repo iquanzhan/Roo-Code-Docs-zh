@@ -12,7 +12,7 @@ const sidebars: SidebarsConfig = {
     'index',
     {
       type: 'category',
-      label: 'Getting Started',
+      label: '快速开始',
       items: [
         'getting-started/installing',
         'getting-started/connecting-api-provider',
@@ -27,12 +27,12 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Tutorial Videos',
+      label: '教程视频',
       items: [
         {
           type: 'doc',
           id: 'tutorial-videos',
-          label: 'All Videos',
+          label: '所有视频',
         },
         ...tutorialVideos.videos.map((video) => ({
           type: 'link' as const,
@@ -44,7 +44,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Roo Code Cloud',
+      label: 'Roo Code 云服务',
       items: [
         'roo-code-cloud/what-is-roo-code-cloud',
         'roo-code-cloud/login',
@@ -54,7 +54,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Features',
+      label: '功能特性',
       collapsed: false,
       collapsible: false,
       items: [
@@ -89,7 +89,7 @@ const sidebars: SidebarsConfig = {
             {
               type: 'doc',
               id: 'features/mcp/overview',
-              label: 'MCP Overview'
+              label: 'MCP 概述'
             },
             'features/mcp/using-mcp-in-roo',
             'features/mcp/what-is-mcp',
@@ -100,7 +100,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Experimental',
+          label: '实验性功能',
           items: [
             'features/experimental/experimental-features',
             'features/experimental/concurrent-file-edits',
@@ -113,11 +113,11 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Advanced Usage',
+      label: '高级用法',
       items: [
         {
           type: 'category',
-          label: 'Available Tools',
+          label: '可用工具',
           items: [
             'advanced-usage/available-tools/tool-use-overview',
             'advanced-usage/available-tools/access-mcp-resource',
@@ -153,15 +153,13 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Model Providers',
+      label: '模型提供商',
       items: [
         'providers/anthropic',
         'providers/claude-code',
         'providers/bedrock',
         'providers/cerebras',
         'providers/deepseek',
-        'providers/doubao',
-        'providers/fireworks',
         'providers/chutes',
         'providers/gemini',
         'providers/glama',
@@ -176,34 +174,32 @@ const sidebars: SidebarsConfig = {
         'providers/openai-compatible',
         'providers/openrouter',
         'providers/requesty',
-        'providers/sambanova',
         'providers/unbound',
         'providers/vertex',
         'providers/vscode-lm',
         'providers/xai',
-        'providers/zai',
       ]
     },
     {
       type: 'category',
-      label: 'FAQ',
+      label: '常见问题',
       items: [
         'faq',
       ],
     },
     {
       type: 'link',
-      label: 'Contributing (GitHub)',
+      label: '贡献指南 (GitHub)',
       href: 'https://github.com/RooCodeInc/Roo-Code/blob/main/CONTRIBUTING.md',
     },
     {
       type: 'link',
-      label: 'Roocabulary (GitHub)',
+      label: 'Roo 词汇表 (GitHub)',
       href: 'https://github.com/cannuri/Roocabulary',
     },
     {
       type: 'category',
-      label: 'Update Notes',
+      label: '更新说明',
       items: [
         'update-notes/index',
         {

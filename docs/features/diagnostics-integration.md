@@ -1,162 +1,144 @@
 ---
-description: Leverage Roo Code's integration with VSCode's Problems panel to automatically detect, understand, and fix code errors, warnings, and linting issues.
-keywords:
-  - diagnostics integration
-  - error detection
-  - problems panel
-  - code fixes
-  - linting
-  - language server
-  - automatic error fixing
-image: /img/social-share.jpg
+slug: /features/diagnostics-integration
+sidebar_label: 诊断集成
 ---
 
-# Diagnostics Integration
+# 诊断集成
 
-Roo Code provides intelligent integration with VSCode's Problems panel, allowing the AI assistant to understand and help fix code errors, warnings, and other issues detected by language servers, linters, and other diagnostic providers.
+Roo Code 的诊断集成功能将您的 AI 编码代理与您工作区中的现有诊断系统无缝连接。这使得 Roo 能够理解和响应各种工具生成的诊断信息，如 TypeScript 编译器、ESLint、Prettier 等。
 
----
+## 关键能力
 
-## Overview
+诊断集成功能使 Roo 能够：
 
-The diagnostics feature seamlessly integrates with VSCode's diagnostic system to provide context-aware assistance for code issues. When you make edits or encounter problems in your code, Roo Code can automatically detect and help resolve them.
+- **读取诊断信息**：访问工作区中任何文件的现有诊断信息，包括错误、警告和信息性消息。
+- **创建诊断信息**：在任何文件中生成新的诊断信息，包括自定义错误、警告和建议。
+- **应用修复**：执行由诊断信息提供的自动修复，或生成新的修复。
+- **交互式修复**：在诊断和潜在修复之间进行迭代，直到问题得到解决。
 
-### Key Capabilities
-- **Automatic Error Detection**: Captures new errors introduced during code edits
-- **Context-Aware Fixes**: Provides targeted fixes based on diagnostic information
-- **Workspace Problems Mention**: Access all workspace diagnostics through a simple mention
-- **Smart Filtering**: Uses predefined severity levels for different contexts
+## 主要特性
 
----
+### 诊断感知
 
-## Key Features
+Roo 能够读取和理解工作区中任何文件的现有诊断信息。这包括：
 
-### 1. Automatic Error Detection
-When Roo Code makes edits to files, it automatically:
-- Captures diagnostics before editing
-- Waits for diagnostics to update after editing
-- Detects new problems introduced by the changes
-- Only reports new errors (not pre-existing ones)
+- 编译器错误（如 TypeScript、Babel）
+- 代码质量警告（如 ESLint、TSLint）
+- 格式化建议（如 Prettier）
+- 自定义诊断工具
 
-This ensures you're immediately aware of any issues introduced by code changes, allowing for quick resolution.
+当 Roo 读取文件内容时，它会自动获取相关的诊断信息，提供对代码状态的全面理解。
 
-### 2. Workspace Problems Mention
-Users can include `@problems` in their messages to:
-- Get a complete list of workspace errors and warnings
-- Provide context for debugging tasks
-- Request fixes for specific issues
+### 修复建议
 
-Example usage:
-```
-@problems Fix all TypeScript errors in my project
-```
+对于许多诊断信息，Roo 可以建议或生成修复。这包括：
 
-For more details on using `@problems`, see [Context Mentions](/basic-usage/context-mentions#problems-mention).
+- 应用工具提供的自动修复（如 ESLint 的 `--fix`）
+- 生成新的修复以解决诊断问题
+- 为复杂问题提供多个修复选项
 
-### 3. Code Actions Integration
-When diagnostics exist at a cursor position:
-- "Fix with Roo Code" action appears in quick fix menu
-- Includes diagnostic details in the fix request
-- Provides targeted solutions based on error context
+### 交互式诊断处理
 
-Learn more about this integration in [Code Actions](/features/code-actions#context-aware-actions).
+Roo 可以与诊断信息进行交互式工作，迭代地应用修复并检查结果。这个过程包括：
 
-### 4. Smart Severity Filtering
-Different features use different severity filters to provide the most relevant information:
-- **Workspace Problems mention**: Shows errors and warnings
-- **Automatic detection**: Shows only errors (to avoid distraction)
-- **Context-Aware**: Different features use different hardcoded severity filters
+1. 识别诊断信息
+2. 应用修复
+3. 验证修复是否解决了问题
+4. 如有必要，重复这个过程
 
----
+这种交互式方法确保诊断问题得到彻底解决。
 
-## Severity Levels
+## 工作原理
 
-The diagnostics system recognizes four severity levels from VSCode:
+### 诊断提供者
 
-| Level | Value | Description | Workspace Problems | Auto-detection |
-|-------|-------|-------------|-------------------|----------------|
-| Error | 0 | Syntax errors, type errors, breaking issues | ✅ Included | ✅ Included |
-| Warning | 1 | Code quality issues, deprecations, style violations | ✅ Included | ❌ Not included |
-| Information | 2 | Suggestions, hints, informational messages | ❌ Not included | ❌ Not included |
-| Hint | 3 | Minor suggestions, refactoring opportunities | ❌ Not included | ❌ Not included |
+诊断信息由工作区中的各种工具提供。这些工具包括：
 
-### Why Different Filters?
+- **语言服务器**：为特定语言提供智能功能（如 TypeScript、Python、Go）
+- **Linter**：分析代码以发现潜在问题（如 ESLint、TSLint、Pylint）
+- **编译器**：检查代码语法和类型（如 TypeScript 编译器、Babel）
+- **格式化工具**：确保代码风格一致性（如 Prettier、Black）
 
-- **Workspace Problems (`@problems`)**: Includes both errors and warnings to give you a complete picture of code health when explicitly requested
-- **Automatic Detection**: Only includes errors to avoid interrupting your workflow with non-critical issues
+### 诊断类型
 
----
+诊断信息分为三种类型：
 
-## Using Diagnostics Effectively
+1. **错误**：阻止代码正确运行的问题
+2. **警告**：可能影响代码质量或可维护性但不会阻止运行的问题
+3. **信息**：提供额外上下文或建议但不表示问题的消息
 
-### For Debugging Sessions
-When starting a debugging session, include `@problems` to give Roo Code full context:
-```
-@problems Help me debug why my application is crashing
-```
+### 修复类型
 
-### For Code Reviews
-Use diagnostics to ensure code quality:
-```
-@problems Review my code and fix any linting issues
-```
+修复可以是以下类型之一：
 
-### For Refactoring
-Let diagnostics guide safe refactoring:
-```
-I want to refactor this function. @problems shows current issues to address.
-```
+- **自动修复**：可以无需用户输入自动应用的修复
+- **建议修复**：需要用户审查或确认的修复
+- **交互式修复**：需要用户输入或决策的多步骤修复
 
----
+## 使用场景
 
-## Integration with Other Features
+诊断集成功能在以下场景中特别有用：
 
-### Code Actions
-Diagnostics power the context-aware [Code Actions](/features/code-actions) that appear in VSCode's lightbulb menu. When errors are present, you'll see "Fix Code" options that include the specific diagnostic information.
+### 自动错误修复
 
-### Context Mentions
-The [`@problems` mention](/basic-usage/context-mentions#problems-mention) provides a convenient way to include all workspace diagnostics in your conversation without manually copying error messages.
+当 Roo 识别到错误时，它可以自动应用修复或建议修复。例如：
 
-### Automatic Error Reporting
-When Roo Code edits files, any new errors introduced are automatically reported in the response, helping maintain code quality throughout the editing process.
+- 修复 TypeScript 类型错误
+- 应用 ESLint 自动修复
+- 解决导入路径问题
 
----
+### 代码质量改进
 
-## Best Practices
+Roo 可以使用诊断信息来改进代码质量：
 
-1. **Use `@problems` for Context**: When debugging, always include `@problems` to give Roo Code full visibility into current issues
+- 解决代码异味
+- 应用最佳实践建议
+- 改进代码可读性
 
-2. **Address Errors First**: Focus on fixing errors before warnings, as errors typically prevent code from running
+### 重构支持
 
-3. **Leverage Code Actions**: Use the quick fix menu for targeted fixes to specific diagnostics
+在重构过程中，诊断集成有助于确保代码保持正确：
 
-4. **Monitor Auto-Detection**: Pay attention to new errors reported after edits to catch issues early
+- 在重命名符号时捕获错误
+- 验证重构后的代码没有引入新问题
+- 提供重构过程中的实时反馈
 
-5. **Combine with Other Tools**: Use diagnostics alongside other Roo Code features like codebase search and file mentions for comprehensive problem-solving
+## 配置
 
----
+诊断集成功能不需要特殊配置。它会自动与工作区中配置的任何诊断提供者一起工作。
 
-## Troubleshooting
+但是，您可以配置 Roo 如何与诊断信息交互：
 
-### Diagnostics Not Appearing
-- Ensure your language server or linter is properly configured and running
-- Check that the file type is supported by your diagnostic providers
-- Verify that VSCode's Problems panel shows the issues
+- **自动应用修复**：配置 Roo 是否应自动应用某些类型的修复
+- **诊断优先级**：设置不同诊断类型的优先级
+- **修复确认**：配置是否需要确认才能应用修复
 
-### `@problems` Shows Nothing
-- Confirm there are actually problems in the Problems panel
-- Check that you're in the correct workspace
-- Some diagnostic providers may take time to initialize
+## 故障排除
 
-### Auto-Detection Missing Errors
-- Only new errors (introduced by edits) are reported
-- Pre-existing errors won't be shown in auto-detection
-- Use `@problems` to see all current issues
+如果诊断集成功能未按预期工作，请检查以下内容：
 
----
+- 确保工作区中已正确配置诊断提供者
+- 验证 Roo 是否有权限读取诊断信息
+- 检查是否有任何错误消息指示诊断集成问题
 
-## Related Features
+如果问题仍然存在，请查看 Roo Code 的文档或寻求支持。
 
-- [Context Mentions](/basic-usage/context-mentions) - Learn about all mention types including `@problems`
-- [Code Actions](/features/code-actions) - Discover how diagnostics integrate with quick fixes
-- [Codebase Search](/features/codebase-indexing) - Find code related to specific errors
+## 最佳实践
+
+要充分利用诊断集成功能，请考虑以下最佳实践：
+
+### 保持诊断工具最新
+
+确保工作区中的诊断工具是最新版本，以获得最佳结果。
+
+### 配置适当的诊断级别
+
+根据项目需求配置适当的诊断级别，以避免信息过载。
+
+### 定期审查诊断信息
+
+定期审查 Roo 生成的诊断信息，以确保其准确性和相关性。
+
+### 使用交互式修复
+
+对于复杂问题，使用 Roo 的交互式修复功能以确保彻底解决问题。

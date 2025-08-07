@@ -1,6 +1,6 @@
 ---
 sidebar_label: Cerebras
-description: Configure Cerebras AI's ultra-fast inference models in Roo Code. Access free and paid tiers with speeds up to 2600 tokens/second for coding and reasoning tasks.
+description: 在 Roo Code 中配置 Cerebras AI 的超快推理模型。访问免费和付费层级，速度高达每秒 2600 个 token，适用于编码和推理任务。
 keywords:
   - cerebras
   - cerebras ai
@@ -14,28 +14,28 @@ keywords:
 image: /img/social-share.jpg
 ---
 
-# Using Cerebras With Roo Code
+# 在 Roo Code 中使用 Cerebras
 
-Cerebras AI specializes in extremely fast inference speeds (up to 2600 tokens/second) with competitive pricing, including a free tier. Their models are optimized for coding, general intelligence, and reasoning tasks.
+Cerebras AI 专注于极快的推理速度（高达每秒 2600 个 token），并具有竞争力的价格，包括免费层级。其模型针对编码、通用智能和推理任务进行了优化。
 
-**Website:** [https://cloud.cerebras.ai/](https://cloud.cerebras.ai/)
-
----
-
-## Getting an API Key
-
-1. **Sign Up/Sign In:** Go to [Cerebras Cloud](https://cloud.cerebras.ai?utm_source=roocode). Create an account or sign in.
-2. **Navigate to API Keys:** Access the API keys section in your dashboard.
-3. **Create a Key:** Generate a new API key. Give it a descriptive name (e.g., "Roo Code").
-4. **Copy the Key:** **Important:** Copy the API key immediately. Store it securely.
+**网站：** [https://cloud.cerebras.ai/](https://cloud.cerebras.ai/)
 
 ---
 
-## Supported Models
+## 获取 API 密钥
 
-Roo Code supports the following Cerebras models:
+1. **注册/登录：** 前往 [Cerebras Cloud](https://cloud.cerebras.ai?utm_source=roocode)。创建账户或登录。
+2. **导航到 API 密钥：** 在您的仪表板中访问 API 密钥部分。
+3. **创建密钥：** 生成新的 API 密钥。给它一个描述性名称（例如，“Roo Code”）。
+4. **复制密钥：** **重要：** 立即复制 API 密钥。安全地存储它。
 
-* `qwen-3-coder-480b-free` (Default)
+---
+
+## 支持的模型
+
+Roo Code 支持以下 Cerebras 模型：
+
+* `qwen-3-coder-480b-free` (默认)
 * `qwen-3-coder-480b`
 * `qwen-3-235b-a22b-instruct-2507`
 * `llama-3.3-70b`
@@ -44,18 +44,18 @@ Roo Code supports the following Cerebras models:
 
 ---
 
-## Configuration in Roo Code
+## 在 Roo Code 中配置
 
-1. **Open Roo Code Settings:** Click the gear icon (<Codicon name="gear" />) in the Roo Code panel.
-2. **Select Provider:** Choose "Cerebras" from the "API Provider" dropdown.
-3. **Enter API Key:** Paste your Cerebras API key into the "Cerebras API Key" field.
-4. **Select Model:** Choose your desired model from the "Model" dropdown.
+1. **打开 Roo Code 设置：** 点击 Roo Code 面板中的齿轮图标 (<Codicon name="gear" />)。
+2. **选择提供商：** 从“API 提供商”下拉菜单中选择“Cerebras”。
+3. **输入 API 密钥：** 将您的 Cerebras API 密钥粘贴到“Cerebras API 密钥”字段中。
+4. **选择模型：** 从“模型”下拉菜单中选择您想要的模型。
 
 ---
 
-## Tips and Notes
+## 提示和注意事项
 
-* **Performance:** Cerebras specializes in extremely fast inference speeds, making it ideal for real-time coding assistance.
-* **Free Tier:** The `qwen-3-coder-480b-free` model provides access to high-performance inference at no cost with rate limits.
-* **Context Windows:** Models support context windows ranging from 64K to 128K tokens.
-* **Pricing:** Refer to the [Cerebras Cloud](https://cloud.cerebras.ai?utm_source=roocode) dashboard for the latest pricing information.
+* **性能：** Cerebras 专注于极快的推理速度，使其成为实时编码辅助的理想选择。
+* **免费层级：** `qwen-3-coder-480b-free` 模型提供对高性能推理的免费访问，但有速率限制。
+* **上下文窗口：** 模型支持 64K 到 128K token 的上下文窗口。
+* **定价：** 请参阅 [Cerebras Cloud](https://cloud.cerebras.ai?utm_source=roocode) 仪表板获取最新的定价信息。

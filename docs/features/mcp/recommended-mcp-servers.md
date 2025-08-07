@@ -1,52 +1,52 @@
 ---
-description: Discover recommended MCP servers for Roo Code, including Context7. Learn how to install and configure MCP servers with step-by-step instructions.
+description: 了解推荐用于 Roo Code 的 MCP 服务器，包括 Context7。学习如何通过分步说明安装和配置 MCP 服务器。
 keywords:
-  - MCP servers
+  - MCP 服务器
   - Context7
   - Roo Code MCP
-  - MCP installation
-  - MCP configuration
-  - recommended servers
+  - MCP 安装
+  - MCP 配置
+  - 推荐服务器
 image: /img/social-share.jpg
-sidebar_label: Recommended MCP Servers
+sidebar_label: 推荐的 MCP 服务器
 ---
 
-# Recommended MCP Servers
+# 推荐的 MCP 服务器
 
-While Roo Code can connect to any Model Context Protocol (MCP) server that follows the specification, the community has already built several high-quality servers that work out-of-the-box. This page curates the servers we **actively recommend** and provides step-by-step setup instructions so you can get productive in minutes.
+虽然 Roo Code 可以连接到任何遵循规范的模型上下文协议 (MCP) 服务器，但社区已经构建了几个开箱即用的高质量服务器。本页面整理了我们**积极推荐**的服务器，并提供分步设置说明，以便您在几分钟内开始工作。
 
-> We'll keep this list up-to-date. If you maintain a server you'd like us to consider, please open a pull-request.
+> 我们将保持此列表的更新。如果您维护了一个希望我们考虑的服务器，请提交拉取请求。
 
 ---
 
 ## Context7
 
-`Context7` is our first-choice general-purpose MCP server. It ships a collection of highly-requested tools, installs with a single command, and has excellent support across every major editor that speaks MCP.
+`Context7` 是我们首选的通用 MCP 服务器。它附带了一组高度需求的工具，通过单个命令安装，并且在每个支持 MCP 的主要编辑器中都有出色的支持。
 
-### Why we recommend Context7
+### 为什么我们推荐 Context7
 
-* **One-command install** – everything is bundled, no local build step.
-* **Cross-platform** – runs on macOS, Windows, Linux, or inside Docker.
-* **Actively maintained** – frequent updates from the Upstash team.
-* **Rich toolset** – database access, web-search, text utilities, and more.
-* **Open source** – released under the MIT licence.
+* **一键安装** – 所有内容都已打包，无需本地构建步骤。
+* **跨平台** – 在 macOS、Windows、Linux 上运行，或在 Docker 内部运行。
+* **积极维护** – 来自 Upstash 团队的频繁更新。
+* **丰富的工具集** – 数据库访问、网络搜索、文本工具等。
+* **开源** – 以 MIT 许可证发布。
 
 ---
 
-## Installing Context7 in Roo Code
+## 在 Roo Code 中安装 Context7
 
-There are two common ways to register the server:
+有两种常见的注册服务器方式：
 
-1. **Global configuration** – available in every workspace.
-2. **Project-level configuration** – checked into version control alongside your code.
+1. **全局配置** – 在每个工作区中都可用。
+2. **项目级配置** – 与您的代码一起提交到版本控制中。
 
-We'll cover both below.
+我们将在下面介绍这两种方式。
 
-### 1. Global configuration
+### 1. 全局配置
 
-1. Open the Roo Code **MCP settings** panel by clicking the <Codicon name="server" /> icon.
-2. Click **Edit Global MCP**.
-3. Paste the JSON below inside the `mcpServers` object and save.
+1. 通过点击 <Codicon name="server" /> 图标打开 Roo Code **MCP 设置**面板。
+2. 点击 **编辑全局 MCP**。
+3. 将下面的 JSON 粘贴到 `mcpServers` 对象内并保存。
 
 ```json
 {
@@ -59,7 +59,7 @@ We'll cover both below.
 }
 ```
 
-**Windows (cmd.exe) variant**
+**Windows (cmd.exe) 变体**
 
 ```json
 {
@@ -73,13 +73,13 @@ We'll cover both below.
 }
 ```
 
-Also on **Windows (cmd)** you may need to invoke `npx` through `cmd.exe`:
+在 **Windows (cmd)** 上，您可能还需要通过 `cmd.exe` 调用 `npx`：
 
-<img src="/img/recommended-mcp-servers/context7-global-setup-fixed.png" alt="Adding Context7 to the global MCP settings" width="600" />
+<img src="/img/recommended-mcp-servers/context7-global-setup-fixed.png" alt="将 Context7 添加到全局 MCP 设置" width="600" />
 
-### 2. Project-level configuration
+### 2. 项目级配置
 
-If you prefer to commit the configuration to your repository, create a file called `.roo/mcp.json` at the project root and add the same snippet:
+如果您更喜欢将配置提交到您的仓库，请在项目根目录创建一个名为 `.roo/mcp.json` 的文件，并添加相同的代码段：
 
 ```json
 {
@@ -92,7 +92,7 @@ If you prefer to commit the configuration to your repository, create a file call
 }
 ```
 
-**Windows (cmd.exe) variant**
+**Windows (cmd.exe) 变体**
 
 ```json
 {
@@ -106,26 +106,26 @@ If you prefer to commit the configuration to your repository, create a file call
 }
 ```
 
-<img src="/img/recommended-mcp-servers/context7-project-setup-fixed.png" alt="Adding Context7 to a project-level MCP file" width="600" />
+<img src="/img/recommended-mcp-servers/context7-project-setup-fixed.png" alt="将 Context7 添加到项目级 MCP 文件" width="600" />
 
-> When both global and project files define a server with the same name, **the project configuration wins**.
-
----
-
-## Verifying the installation
-
-1. Make sure **Enable MCP Servers** is turned on in the MCP settings panel.
-2. You should now see **Context7** listed. Click the <Codicon name="activate" /> toggle to start it if it isn't already running.
-3. Roo Code will prompt you the first time a Context7 tool is invoked. Approve the request to continue.
-
-<img src="/img/recommended-mcp-servers/context7-running-fixed.png" alt="Context7 running in Roo Code" width="400" />
+> 当全局和项目文件都定义了同名服务器时，**项目配置优先**。
 
 ---
 
-## Next steps
+## 验证安装
 
-* Browse the list of tools shipped with Context7 in the server pane.
-* Configure **Always allow** for the tools you use most to streamline your workflow.
-* Want to expose your own APIs? Check out the [MCP server creation guide](/features/mcp/using-mcp-in-roo#enabling-or-disabling-mcp-server-creation).
+1. 确保在 MCP 设置面板中打开了 **启用 MCP 服务器**。
+2. 您现在应该看到列出的 **Context7**。如果尚未运行，请点击 <Codicon name="activate" /> 切换开关启动它。
+3. 首次调用 Context7 工具时，Roo Code 会提示您。批准请求以继续。
 
-Looking for other servers? Watch this page – we'll add more recommendations soon! 
+<img src="/img/recommended-mcp-servers/context7-running-fixed.png" alt="Context7 在 Roo Code 中运行" width="400" />
+
+---
+
+## 下一步
+
+* 在服务器面板中浏览 Context7 附带的工具列表。
+* 为最常使用的工具配置 **始终允许** 以简化您的工作流程。
+* 想要公开您自己的 API？请查看 [MCP 服务器创建指南](/features/mcp/using-mcp-in-roo#enabling-or-disabling-mcp-server-creation)。
+
+寻找其他服务器？请关注此页面 – 我们将很快添加更多推荐！

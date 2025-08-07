@@ -1,134 +1,134 @@
 ---
-description: Discover how the new_task tool enables complex workflow management by creating subtasks with different modes, maintaining parent-child relationships for organized development.
+description: 了解 new_task 工具如何通过创建具有不同模式的子任务来实现复杂的工作流管理，保持父子关系以实现有序开发。
 keywords:
   - new_task
-  - Roo Code tools
-  - subtasks
-  - workflow management
-  - task hierarchy
-  - mode switching
-  - complex projects
-  - task organization
+  - Roo Code 工具
+  - 子任务
+  - 工作流管理
+  - 任务层次结构
+  - 模式切换
+  - 复杂项目
+  - 任务组织
   - VS Code AI
 image: /img/social-share.jpg
 ---
 
-# new_task
+# 新任务
 
-The `new_task` tool creates subtasks with specialized modes while maintaining a parent-child relationship. It breaks down complex projects into manageable pieces, each operating in the mode best suited for specific work.
-
----
-
-## Parameters
-
-The tool accepts these parameters:
-
-- `mode` (required): The slug of the mode to start the new task in (e.g., "code", "ask", "architect")
-- `message` (required): The initial user message or instructions for this new task
+`new_task` 工具创建具有专门模式的子任务，同时保持父子关系。它将复杂项目分解为可管理的部分，每个部分在最适合特定工作的模式下运行。
 
 ---
 
-## What It Does
+## 参数
 
-This tool creates a new task instance with a specified starting mode and initial message. It allows complex workflows to be divided into subtasks with their own conversation history. Parent tasks are paused during subtask execution and resumed when the subtask completes, with results transferred back to the parent.
+该工具接受以下参数：
 
----
-
-## When is it used?
-
-- When breaking down complex projects into separate, focused subtasks
-- When different aspects of a task require different specialized modes
-- When different phases of work benefit from context separation
-- When organizing multi-phase development workflows
+- `mode` (必需): 启动新任务的模式 slug (例如, "code", "ask", "architect")
+- `message` (必需): 此新任务的初始用户消息或指令
 
 ---
 
-## Key Features
+## 功能
 
-- Creates subtasks with their own conversation history and specialized mode
-- Pauses parent tasks for later resumption
-- Maintains hierarchical task relationships for navigation
-- Transfers results back to parent tasks upon completion
-- Supports workflow segregation for complex projects
-- Allows different parts of a project to use modes optimized for specific work
-- Requires explicit user approval for task creation
-- Provides clear task transition in the UI
+此工具创建具有指定起始模式和初始消息的新任务实例。它允许将复杂的工作流划分为具有自己对话历史的子任务。在子任务执行期间，父任务会暂停，并在子任务完成时恢复，结果会传回给父任务。
 
 ---
 
-## Limitations
+## 使用场景
 
-- Cannot create tasks with modes that don't exist
-- Requires user approval before creating each new task
-- Task interface may become complex with deeply nested subtasks
-- Subtasks inherit certain workspace and extension configurations from parents
-- May require re-establishing context when switching between deeply nested tasks
-- Task completion needs explicit signaling to properly return to parent tasks
+- 当需要将复杂项目分解为独立的、专注的子任务时
+- 当任务的不同方面需要不同的专门模式时
+- 当工作的不同阶段受益于上下文分离时
+- 当组织多阶段开发工作流时
 
 ---
 
-## How It Works
+## 主要特性
 
-When the `new_task` tool is invoked, it follows this process:
-
-1. **Parameter Validation**:
-   - Validates the required `mode` and `message` parameters
-   - Verifies that the requested mode exists in the system
-
-2. **Task Stack Management**:
-   - Maintains a task stack that tracks all active and paused tasks
-   - Preserves the current mode for later resumption
-   - Sets the parent task to paused state
-
-3. **Task Context Management**:
-   - Creates a new task context with the provided message
-   - Assigns unique taskId and instanceId identifiers for state management
-   - Captures telemetry data on tool usage and task lifecycles
-
-4. **Mode Switching and Integration**:
-   - Switches to the specified mode with appropriate role and capabilities
-   - Initializes the new task with the provided message
-   - Integrates with VS Code's command palette and code actions
-
-5. **Task Completion and Result Transfer**:
-   - When subtask completes, result is passed back to parent task via `finishSubTask()`
-   - Parent task resumes in its original mode
-   - Task history and token usage metrics are updated
-   - The `taskCompleted` event is emitted with performance data
+- 创建具有自己对话历史和专门模式的子任务
+- 暂停父任务以便稍后恢复
+- 维护分层任务关系以便导航
+- 完成后将结果传回父任务
+- 支持复杂项目的工 workflow 隔离
+- 允许项目不同部分使用针对特定工作优化的模式
+- 需要用户明确批准任务创建
+- 在 UI 中提供清晰的任务转换
 
 ---
 
-## Examples When Used
+## 限制
 
-- When a front-end developer needs to architect a new feature, implement the code, and document it, they can create separate tasks for each phase with results flowing from one phase to the next.
-- When debugging an issue before implementing a fix, the debugging task can document findings that are passed to the implementation task.
-- When developing a full-stack application, database schema designs from an architect-mode task inform implementation details in a subsequent code-mode task.
-- When documenting a system after implementation, the documentation task can reference the completed implementation while using documentation-specific features.
+- 无法创建不存在模式的任务
+- 创建每个新任务前需要用户批准
+- 任务界面在深度嵌套的子任务中可能变得复杂
+- 子任务从父任务继承某些工作区和扩展配置
+- 在深度嵌套任务之间切换时可能需要重新建立上下文
+- 任务完成需要明确信号才能正确返回父任务
 
 ---
 
-## Usage Examples
+## 工作原理
 
-Creating a new task in code mode:
+当调用 `new_task` 工具时，它遵循以下过程：
+
+1. **参数验证**:
+   - 验证必需的 `mode` 和 `message` 参数
+   - 验证请求的模式在系统中是否存在
+
+2. **任务栈管理**:
+   - 维护跟踪所有活动和暂停任务的任务栈
+   - 保留当前模式以便稍后恢复
+   - 将父任务设置为暂停状态
+
+3. **任务上下文管理**:
+   - 使用提供的消息创建新任务上下文
+   - 分配唯一的 taskId 和 instanceId 标识符用于状态管理
+   - 捕获工具使用和任务生命周期的遥测数据
+
+4. **模式切换和集成**:
+   - 切换到指定模式并具备适当的角色和功能
+   - 使用提供的消息初始化新任务
+   - 与 VS Code 的命令面板和代码操作集成
+
+5. **任务完成和结果传输**:
+   - 当子任务完成时，结果通过 `finishSubTask()` 传回父任务
+   - 父任务在其原始模式下恢复
+   - 更新任务历史和令牌使用指标
+   - 发出带有性能数据的 `taskCompleted` 事件
+
+---
+
+## 使用示例
+
+- 当前端开发人员需要设计新功能、实现代码和编写文档时，他们可以为每个阶段创建单独的任务，结果从一个阶段流向下一个阶段。
+- 在实现修复之前调试问题时，调试任务可以记录发现并传递给实现任务。
+- 在开发全栈应用程序时，架构师模式任务中的数据库模式设计会通知后续代码模式任务中的实现细节。
+- 在实现后记录系统文档时，文档任务可以在使用文档特定功能的同时引用已完成的实现。
+
+---
+
+## 使用示例
+
+在代码模式下创建新任务：
 ```
 <new_task>
 <mode>code</mode>
-<message>Implement a user authentication service with login, registration, and password reset functionality.</message>
+<message>实现具有登录、注册和密码重置功能的用户认证服务。</message>
 </new_task>
 ```
 
-Creating a documentation task after completing implementation:
+在完成实现后创建文档任务：
 ```
 <new_task>
 <mode>docs</mode>
-<message>Create comprehensive API documentation for the authentication service we just built.</message>
+<message>为我们刚刚构建的认证服务创建全面的 API 文档。</message>
 </new_task>
 ```
 
-Breaking down a complex feature into architectural planning and implementation:
+将复杂功能分解为架构规划和实现：
 ```
 <new_task>
 <mode>architect</mode>
-<message>Design the database schema and system architecture for our new e-commerce platform.</message>
+<message>为我们的新电子商务平台设计数据库模式和系统架构。</message>
 </new_task>
 ```

@@ -1,45 +1,45 @@
 ---
-description: 'Explore Roo Code''s experimental features including concurrent file edits and power steering. Enable advanced capabilities that are still under development.'
+description: '探索 Roo Code 的实验功能，包括并发文件编辑和动力转向。启用仍在开发中的高级功能。'
 keywords:
-  - experimental features
-  - "Roo Code beta"
-  - "advanced features"
-  - "concurrent file edits"
-  - "power steering"
-  - "feature flags"
+  - 实验功能
+  - "Roo Code 测试版"
+  - "高级功能"
+  - "并发文件编辑"
+  - "动力转向"
+  - "功能标志"
 image: /img/social-share.jpg
 ---
 
-# Experimental Features
+# 实验功能
 
-Roo Code includes experimental features that are still under development. These features may be unstable, change significantly, or be removed in future versions. Use them with caution and be aware that they may not work as expected.
+Roo Code 包含仍在开发中的实验功能。这些功能可能不稳定、发生重大变化或在未来版本中被删除。使用时请谨慎，并注意它们可能无法按预期工作。
 
-**Warning:** Experimental features may have unexpected behavior, including potential data loss or security vulnerabilities. Enable them at your own risk.
-
----
-
-## Enabling Experimental Features
-
-To enable or disable experimental features:
-
-1.  Open the Roo Code settings (`<Codicon name="gear" />` icon in the top right corner).
-2.  Go to the "Advanced Settings" section.
-3.  Find the "Experimental Features" section.
+**警告：** 实验功能可能存在意外行为，包括潜在的数据丢失或安全漏洞。启用风险自负。
 
 ---
 
-## Current Experimental Features
+## 启用实验功能
 
-The following experimental features are currently available:
+要启用或禁用实验功能：
 
-- [Concurrent File Edits](/features/experimental/concurrent-file-edits) - Edit multiple files in a single operation
-- [Power Steering](/features/experimental/power-steering) - Enhanced consistency in AI responses
-- [Background Editing](/features/experimental/background-editing) - Work uninterrupted while Roo edits files in the background
+1.  打开 Roo Code 设置（右上角的 `<Codicon name="gear" />` 图标）。
+2.  转到“高级设置”部分。
+3.  找到“实验功能”部分。
 
 ---
 
-## Providing Feedback
+## 当前实验功能
 
-If you encounter any issues with experimental features, or if you have suggestions for improvements, please report them on the [Roo Code GitHub Issues page](https://github.com/RooCodeInc/Roo-Code/issues).
+以下实验功能当前可用：
 
-Your feedback is valuable and helps us improve Roo Code!
+- [并发文件编辑](/features/experimental/concurrent-file-edits) - 在单个操作中编辑多个文件
+- [动力转向](/features/experimental/power-steering) - 增强 AI 响应的一致性
+- [后台编辑](/features/experimental/background-editing) - 在 Roo 后台编辑文件时不受干扰地工作
+
+---
+
+## 提供反馈
+
+如果您在使用实验功能时遇到任何问题，或对改进有建议，请在 [Roo Code GitHub 问题页面](https://github.com/RooCodeInc/Roo-Code/issues) 上报告。
+
+您的反馈非常宝贵，有助于我们改进 Roo Code！

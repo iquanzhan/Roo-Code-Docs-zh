@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "node -r dotenv/config node_modules/.bin/docusaurus start",
-    "build": "node -r dotenv/config node_modules/.bin/docusaurus build",
+    "start": "npx docusaurus start",
+    "build": "npx docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",

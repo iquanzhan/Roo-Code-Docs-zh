@@ -1,201 +1,200 @@
 ---
-description: Enable interactive communication in Roo Code with the ask_followup_question tool for gathering clarification and user preferences.
-keywords:
+描述: 使用 ask_followup_question 工具在 Roo Code 中实现交互式通信，以收集澄清信息和用户偏好。
+关键词:
   - ask_followup_question
-  - user interaction
-  - interactive communication
-  - Roo Code tools
-  - clarification
-  - user feedback
+  - 用户交互
+  - 交互式通信
+  - Roo Code 工具
+  - 澄清
+  - 用户反馈
 image: /img/social-share.jpg
 ---
 
-# ask_followup_question
+# 提出后续问题
 
-The `ask_followup_question` tool enables interactive communication by asking specific questions to gather additional information needed to complete tasks effectively.
-
----
-
-## Parameters
-
-The tool accepts these parameters:
-
-- `question` (required): The specific question to ask the user
-- `follow_up` (optional): A list of 2-4 suggested answers that help guide user responses, each within `<suggest>` tags
+`ask_followup_question` 工具通过提出具体问题来实现交互式通信，以收集完成任务所需的信息。
 
 ---
 
-## What It Does
+## 参数
 
-This tool creates a conversational interface between Roo and the user, allowing for gathering clarification, additional details, or user preferences when facing ambiguities or decision points. Each question can include suggested responses to streamline the interaction.
+该工具接受以下参数：
 
----
-
-## When is it used?
-
-- When critical information is missing from the original request
-- When Roo needs to choose between multiple valid implementation approaches
-- When technical details or preferences are required to proceed
-- When Roo encounters ambiguities that need resolution
-- When additional context would significantly improve the solution quality
+- `question`（必需）：向用户提出的具体问题
+- `follow_up`（可选）：一个包含 2-4 个建议答案的列表，用于指导用户响应，每个答案都包含在 `<suggest>` 标签中
 
 ---
 
-## Key Features
+## 功能
 
-- Provides a structured way to gather specific information without breaking workflow
-- Includes suggested answers to reduce user typing and guide responses
-- Maintains conversation history and context across interactions
-- Supports responses containing images and code snippets
-- Available in all modes as part of the "always available" tool set
-- Enables direct user guidance on implementation decisions
-- Formats responses with `<answer>` tags to distinguish them from regular conversation
-- Resets consecutive error counter when used successfully
+该工具在 Roo 和用户之间创建一个对话界面，用于在遇到歧义或决策点时收集澄清信息、额外细节或用户偏好。每个问题都可以包含建议的响应，以简化交互。
 
 ---
 
-## Limitations
+## 使用场景
 
-- Limited to asking one specific question per tool use
-- Presents suggestions as selectable options in the UI
-- Cannot force structured responses – users can still respond freely
-- Excessive use can slow down task completion and create a fragmented experience
-- Suggested answers must be complete, with no placeholders requiring user edits
-- No built-in validation for user responses
-- Contains no mechanism to enforce specific answer formats
+- 当原始请求中缺少关键信息时
+- 当 Roo 需要在多种有效的实现方法中进行选择时
+- 当需要技术细节或偏好来继续进行时
+- 当 Roo 遇到需要解决的歧义时
+- 当额外的上下文会显著提高解决方案质量时
 
 ---
 
-## How It Works
+## 主要特性
 
-When the `ask_followup_question` tool is invoked, it follows this process:
+- 提供了一种结构化的方式来收集特定信息，而不会中断工作流程
+- 包含建议的答案，以减少用户输入并指导响应
+- 跨交互维护对话历史和上下文
+- 支持包含图像和代码片段的响应
+- 作为“始终可用”工具集的一部分，在所有模式下都可用
+- 启用对实现决策的直接用户指导
+- 使用 `<answer>` 标签格式化响应，以将其与常规对话区分开来
+- 成功使用时重置连续错误计数器
 
-1. **Parameter Validation**: Validates the required `question` parameter and checks for optional suggestions
-   - Ensures question text is provided
-   - Parses any suggested answers from the `follow_up` parameter using the `fast-xml-parser` library
-   - Normalizes suggestions into an array format even if there's only one suggestion
+---
 
-2. **JSON Transformation**: Converts the XML structure into a standardized JSON format for UI display
+## 限制
+
+- 限制为每次工具使用只问一个具体问题
+- 在 UI 中将建议作为可选项呈现
+- 无法强制结构化响应——用户仍可以自由响应
+- 过度使用会减慢任务完成速度并造成碎片化体验
+- 建议的答案必须完整，不能包含需要用户编辑的占位符
+- 对用户响应没有内置验证
+- 不包含强制特定答案格式的机制
+
+---
+
+## 工作原理
+
+当调用 `ask_followup_question` 工具时，它遵循以下过程：
+
+1. **参数验证**：验证必需的 `question` 参数并检查可选建议
+   - 确保提供了问题文本
+   - 使用 `fast-xml-parser` 库从 `follow_up` 参数解析任何建议的答案
+   - 将建议规范化为数组格式，即使只有一个建议
+
+2. **JSON 转换**：将 XML 结构转换为标准化的 JSON 格式以供 UI 显示
    ```typescript
    {
-     question: "User's question here",
+     question: "用户的问题在这里",
      suggest: [
-       { answer: "Suggestion 1" },
-       { answer: "Suggestion 2" }
+       { answer: "建议 1" },
+       { answer: "建议 2" }
      ]
    }
    ```
 
-3. **UI Integration**:
-   - Passes the JSON structure to the UI layer via the `ask("followup", ...)` method
-   - Displays selectable suggestion buttons to the user in the interface
-   - Creates an interactive experience for selecting or typing a response
+3. **UI 集成**：
+   - 通过 `ask("followup", ...)` 方法将 JSON 结构传递给 UI 层
+   - 在界面中向用户显示可选择的建议按钮
+   - 为选择或输入响应创建交互式体验
 
-4. **Response Collection and Processing**:
-   - Captures user text input and any images included in the response
-   - Wraps user responses in `<answer>` tags when returning to the assistant
-   - Preserves any images included in the user's response
-   - Maintains the conversational context by adding the response to the history
-   - Resets the consecutive error counter when the tool is used successfully
+4. **响应收集和处理**：
+   - 捕获用户文本输入和响应中包含的任何图像
+   - 在返回给助手时用 `<answer>` 标签包装用户响应
+   - 保留用户响应中包含的任何图像
+   - 通过将响应添加到历史记录中来维护对话上下文
+   - 成功使用时重置连续错误计数器
 
-5. **Error Handling**:
-   - Tracks consecutive mistakes using a counter
-   - Resets the counter when the tool is used successfully
-   - Provides specific error messages:
-     - For missing parameters: "Missing required parameter 'question'"
-     - For XML parsing: "Failed to parse operations: [error message]"
-     - For invalid format: "Invalid operations xml format"
-   - Contains safeguards to prevent tool execution when required parameters are missing
-   - Increments consecutive mistake count when errors occur
-
----
-
-## Workflow Sequence
-
-The question-answer cycle follows this sequence:
-
-1. **Information Gap Recognition**: Roo identifies missing information needed to proceed
-2. **Specific Question Creation**: Roo formulates a clear, targeted question
-3. **Suggestion Development**: Roo creates relevant suggested answers (optional but recommended)
-4. **Tool Invocation**: Assistant invokes the tool with question and optional suggestions
-5. **UI Presentation**: Question and suggestions are displayed to the user as interactive elements
-6. **User Response**: The user selects a suggestion or provides a custom answer
-7. **Message Handling**: System handles both partial and complete messages
-   - For streaming responses, processes chunks as they arrive
-   - For complete messages, processes the entire response at once
-   - Maintains state consistency regardless of message chunking
-8. **Response Processing**: System wraps the response in `<answer>` tags and preserves images
-9. **Context Integration**: Response is added to the conversation history
-10. **Task Continuation**: Roo proceeds with the task using the new information
+5. **错误处理**：
+   - 使用计数器跟踪连续错误
+   - 成功使用时重置计数器
+   - 提供特定的错误消息：
+     - 对于缺少参数："Missing required parameter 'question'"
+     - 对于 XML 解析："Failed to parse operations: [error message]"
+     - 对于无效格式："Invalid operations xml format"
+   - 包含防止在缺少必需参数时执行工具的保障措施
+   - 发生错误时增加连续错误计数
 
 ---
 
-## Examples When Used
+## 工作流程
 
-- When developing a web application, Roo might ask about preferred styling frameworks (Bootstrap, Tailwind, custom CSS)
-- When creating an API, Roo might ask about authentication methods (JWT, OAuth, API keys)
-- When refactoring code, Roo might ask about prioritizing performance vs. readability
-- When setting up a database, Roo might ask about specific schema design preferences
-- When creating a custom feature, Roo might ask about specific behavior expectations
-- When troubleshooting errors, Roo might ask about specific environment details
+问答周期遵循以下顺序：
+
+1. **识别信息差距**：Roo 识别继续进行所需的信息
+2. **创建具体问题**：Roo 制定一个清晰、有针对性的问题
+3. **开发建议**：Roo 创建相关的建议答案（可选但推荐）
+4. **调用工具**：助手使用问题和可选建议调用工具
+5. **UI 呈现**：问题和建议作为交互元素显示给用户
+6. **用户响应**：用户选择建议或提供自定义答案
+7. **消息处理**：系统处理部分和完整消息
+   - 对于流式响应，处理到达的数据块
+   - 对于完整消息，一次性处理整个响应
+   - 无论消息分块如何，都保持状态一致性
+8. **响应处理**：系统用 `<answer>` 标签包装响应并保留图像
+9. **上下文集成**：响应被添加到对话历史中
+10. **任务继续**：Roo 使用新信息继续任务
 
 ---
 
-## Response Format
+## 使用示例
 
-When a user responds to a question, the response is formatted with `<answer>` tags for clarity and consistency. This format helps clearly separate the user's answer from other conversation elements.
+- 在开发 Web 应用程序时，Roo 可能会询问首选的样式框架（Bootstrap、Tailwind、自定义 CSS）
+- 在创建 API 时，Roo 可能会询问身份验证方法（JWT、OAuth、API 密钥）
+- 在重构代码时，Roo 可能会询问优先考虑性能还是可读性
+- 在设置数据库时，Roo 可能会询问特定的模式设计偏好
+- 在创建自定义功能时，Roo 可能会询问特定的行为期望
+- 在排除错误时，Roo 可能会询问特定的环境详细信息
 
-Example response format:
+---
+
+## 响应格式
+
+当用户响应问题时，响应会用 `<answer>` 标签格式化以确保清晰和一致。这种格式有助于清楚地区分用户的答案和其他对话元素。
+
+示例响应格式：
 ```
 <answer>
-Use Tailwind CSS for utility-first styling with maximum flexibility
+使用 Tailwind CSS 进行实用优先的样式设计，具有最大的灵活性
 </answer>
 ```
 
-Key characteristics of the response format:
-- Surrounded by `<answer>` tags
-- Preserves formatting of the original response
-- Maintains images if included in the response
-- Returns the complete text, even for long responses
+响应格式的关键特征：
+- 用 `<answer>` 标签包围
+- 保留原始响应的格式
+- 如果响应中包含图像，则保留图像
+- 返回完整文本，即使对于长响应也是如此
 
 ---
 
-## Usage Examples
+## 使用示例
 
-Asking about implementation preferences:
+询问实现偏好：
 ```
 <ask_followup_question>
-<question>Which styling approach would you prefer for this web application?</question>
+<question>您希望为此 Web 应用程序采用哪种样式方法？</question>
 <follow_up>
-<suggest>Use Bootstrap for rapid development with consistent components</suggest>
-<suggest>Use Tailwind CSS for utility-first styling with maximum flexibility</suggest>
-<suggest>Use vanilla CSS with custom styling for complete control and minimal dependencies</suggest>
+<suggest>使用 Bootstrap 进行快速开发，具有统一的组件</suggest>
+<suggest>使用 Tailwind CSS 进行实用优先的样式设计，具有最大的灵活性</suggest>
+<suggest>使用原生 CSS 和自定义样式，实现完全控制和最小依赖</suggest>
 </follow_up>
 </ask_followup_question>
 ```
 
-
-Requesting technical clarification:
+请求技术澄清：
 ```
 <ask_followup_question>
-<question>What database should this application use for storing user data?</question>
+<question>此应用程序应使用什么数据库来存储用户数据？</question>
 <follow_up>
-<suggest>MongoDB for flexible schema and document-based storage</suggest>
-<suggest>PostgreSQL for relational data with strong consistency guarantees</suggest>
-<suggest>Firebase for real-time updates and simplified backend management</suggest>
-<suggest>SQLite for lightweight local storage without external dependencies</suggest>
+<suggest>MongoDB 用于灵活的模式和基于文档的存储</suggest>
+<suggest>PostgreSQL 用于具有强一致性保证的关系数据</suggest>
+<suggest>Firebase 用于实时更新和简化的后端管理</suggest>
+<suggest>SQLite 用于无需外部依赖的轻量级本地存储</suggest>
 </follow_up>
 </ask_followup_question>
 ```
 
-Addressing ambiguity in requirements:
+解决需求中的歧义：
 ```
 <ask_followup_question>
-<question>How should the application handle user authentication?</question>
+<question>应用程序应如何处理用户身份验证？</question>
 <follow_up>
-<suggest>Implement email/password authentication with account verification</suggest>
-<suggest>Use social login providers (Google, GitHub, etc.) for quick signup</suggest>
-<suggest>Implement both email/password and social login options</suggest>
+<suggest>实现电子邮件/密码身份验证和账户验证</suggest>
+<suggest>使用社交登录提供商（Google、GitHub 等）进行快速注册</suggest>
+<suggest>实现电子邮件/密码和社交登录选项</suggest>
 </follow_up>
 </ask_followup_question>
 ```

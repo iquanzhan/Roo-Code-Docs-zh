@@ -1,80 +1,80 @@
 ---
-description: Learn how message queueing in Roo Code allows you to send multiple messages while the AI is working, with messages being processed sequentially for uninterrupted workflow.
+description: 了解 Roo Code 中的消息队列如何允许您在 AI 工作时发送多条消息，消息按顺序处理以实现不间断的工作流程。
 keywords:
-  - message queueing
-  - queued messages
-  - sequential processing
-  - workflow efficiency
-  - chat interface
-  - Roo Code features
+  - 消息队列
+  - 排队消息
+  - 顺序处理
+  - 工作流程效率
+  - 聊天界面
+  - Roo Code 功能
 image: /img/social-share.jpg
 ---
 
 
-# Message Queueing
+# 消息队列
 
-Keep your workflow uninterrupted with message queueing—send multiple messages while Roo is working, and they'll be processed sequentially without losing your train of thought.
+通过消息队列保持工作流程不间断——在 Roo 工作时发送多条消息，它们将按顺序处理而不会打断您的思路。
 
-:::tip Efficiency Boost
-No more waiting! Type your follow-up thoughts, corrections, or additional requests while Roo is still processing, and they'll be handled in order.
+:::tip 效率提升
+无需再等待！在 Roo 仍在处理时输入您的后续想法、更正或额外请求，它们将按顺序处理。
 :::
 
 ---
 
-## Overview
+## 概述
 
-Message queueing lets you type and send messages while Roo is still working. Just type your message and hit Enter - it gets queued and will be processed as soon as Roo is ready for your next input, right before it would typically ask for an approval. This feature is particularly useful for quick corrections or additions to your request.
+消息队列允许您在 Roo 仍在工作时输入和发送消息。只需输入您的消息并按 Enter - 它会被排队，并在 Roo 准备好接收您的下一个输入时立即处理，就在它通常会要求批准之前。此功能对于快速更正或添加到您的请求中特别有用。
 
 ---
 
-## How It Works
+## 工作原理
 
-While Roo is working:
+当 Roo 在工作时：
 
-1. **Type your message** as normal
-2. **Press Enter** or click Send
-3. **Message gets queued** and appears with "Queued Messages:" label
-4. **Roo processes the queued message** as soon as it's ready for your next input, right before it would typically ask for an approval
+1. **正常输入您的消息**
+2. **按 Enter** 或单击发送
+3. **消息被排队** 并显示 "排队消息：" 标签
+4. **Roo 处理排队消息** 在它准备好接收您的下一个输入时，就在它通常会要求批准之前
 
-<img src="/img/message-queueing/message-queueing.png" alt="Message queueing interface showing active processing and three queued messages" width="800" />
+<img src="/img/message-queueing/message-queueing.png" alt="消息队列界面显示活动处理和三条排队消息" width="800" />
 
-**What you'll see:**
-- Queued messages appear with "Queued Messages:" label
-- Bordered cards for each queued message
-- Click messages to edit them
-- Trash icon to delete messages
+**您将看到：**
+- 排队消息显示 "排队消息：" 标签
+- 每个排队消息的边框卡片
+- 单击消息以编辑它们
+- 垃圾桶图标以删除消息
 
-The input field stays active so you can type anytime - just hit Enter to queue your message.
+输入字段保持活动状态，因此您可以随时输入 - 只需按 Enter 将您的消息排队。
 
-:::warning Interacting with Queued Messages
-Editing or deleting a queued message requires clicking on it before it's processed. If you have auto-approval enabled, the time to do this may be very short or non-existent, as the queued message and the next action can be processed almost instantly. For workflows where you anticipate needing to edit queued messages, consider temporarily disabling auto-approval.
+:::warning 与排队消息交互
+编辑或删除排队消息需要在处理之前单击它。如果您启用了自动批准，执行此操作的时间可能非常短或不存在，因为排队消息和下一个操作几乎可以立即处理。对于需要编辑排队消息的工作流程，请考虑暂时禁用自动批准。
 :::
 
 
 ---
 
-## FAQ
+## 常见问题
 
-**Q: How many messages can I queue?**
-A: There is no hard limit on the number of messages you can queue. The queue size is only limited by available browser memory.
+**问：我可以排队多少条消息？**
+答：排队消息的数量没有硬性限制。队列大小仅受可用浏览器内存限制。
 
-**Q: Can I reorder queued messages?**
-A: No, messages are always processed in the order they were sent (FIFO).
+**问：我可以重新排序排队消息吗？**
+答：不可以，消息总是按发送顺序处理（先进先出）。
 
-**Q: What happens if Roo encounters an error?**
-A: Queued messages remain in the queue. You can choose to cancel them or let processing continue.
+**问：如果 Roo 遇到错误会发生什么？**
+答：排队消息保留在队列中。您可以选择取消它们或让处理继续。
 
-**Q: Do queued messages use the same context?**
-A: Yes, each message builds on the conversation context, including previous messages and responses.
+**问：排队消息使用相同的上下文吗？**
+答：是的，每条消息都建立在对话上下文的基础上，包括以前的消息和响应。
 
-**Q: Can I edit a queued message?**
-A: Yes! Click on any queued message to edit it. Press Enter to save your changes or Escape to cancel editing. Multiple messages can be edited simultaneously.
+**问：我可以编辑排队消息吗？**
+答：可以！单击任何排队消息以编辑它。按 Enter 保存更改或按 Escape 取消编辑。可以同时编辑多条消息。
 
 ---
 
-## See Also
+## 另请参阅
 
-- [The Chat Interface](/basic-usage/the-chat-interface) - Learn about all chat features
-- [Task Management](/features/task-todo-list) - Organize complex workflows
-- [Auto-Approving Actions](/features/auto-approving-actions) - Streamline repetitive approvals
-- [Keyboard Shortcuts](/features/keyboard-shortcuts) - Speed up your workflow
+- [聊天界面](/basic-usage/the-chat-interface) - 了解所有聊天功能
+- [任务管理](/features/task-todo-list) - 组织复杂的工作流程
+- [自动批准操作](/features/auto-approving-actions) - 简化重复批准
+- [键盘快捷键](/features/keyboard-shortcuts) - 加快您的工作流程

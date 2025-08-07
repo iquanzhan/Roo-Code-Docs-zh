@@ -1,154 +1,160 @@
 ---
-description: Learn how to use context mentions (@) in Roo Code to reference files, folders, problems, terminal output, and Git commits for more accurate AI assistance.
+description: 了解如何在 Roo Code 中使用上下文提及 (@) 来引用文件、文件夹、问题、终端输出和 Git 提交，以获得更准确的 AI 辅助。
 keywords:
-  - "Roo Code context mentions"
-  - "@ mentions"
-  - "file references"
-  - "folder mentions"
-  - "problems panel"
-  - "terminal mentions"
-  - "Git integration"
+  - "Roo Code 上下文提及"
+  - "@ 提及"
+  - "文件引用"
+  - "文件夹提及"
+  - "问题面板"
+  - "终端提及"
+  - "Git 集成"
 image: /img/social-share.jpg
 ---
 
-# Context Mentions
+# 上下文提及
 
-Context mentions are a powerful way to provide Roo Code with specific information about your project, allowing it to perform tasks more accurately and efficiently. You can use mentions to refer to files, folders, problems, and Git commits. Context mentions start with the `@` symbol.
+上下文提及是向 Roo Code 提供项目特定信息的强大方式，使其能够更准确高效地执行任务。您可以使用提及相关文件、文件夹、问题和 Git 提交。上下文提及以 `@` 符号开头。
 
-<img src="/img/context-mentions/context-mentions.png" alt="Context Mentions Overview - showing the @ symbol dropdown menu in the chat interface" width="600" />
+<img src="/img/context-mentions/context-mentions.png" alt="上下文提及概述 - 显示聊天界面中的 @ 符号下拉菜单" width="600" />
 
-*Context mentions overview showing the @ symbol dropdown menu in the chat interface.*
-
----
-
-## Types of Mentions
-
-<img src="/img/context-mentions/context-mentions-1.png" alt="File mention example showing a file being referenced with @ and its contents appearing in the conversation" width="600" />
-
-*File mentions add actual code content into the conversation for direct reference and analysis.*
-
-| Mention Type | Format | Description | Example Usage |
-|--------------|--------|-------------|--------------|
-| **File** | `@/path/to/file.ts` | Includes file contents in request context | "Explain the function in @/src/utils.ts" |
-| **Folder** | `@/path/to/folder` | Includes contents of all files directly in the folder (non-recursive) | "Analyze the code in @/src/components" |
-| **Problems** | `@problems` | Includes VS Code Problems panel diagnostics | "@problems Fix all errors in my code" |
-| **Terminal** | `@terminal` | Includes recent terminal command and output | "Fix the errors shown in @terminal" |
-| **Git Commit** | `@a1b2c3d` | References specific commit by hash | "What changed in commit @a1b2c3d?" |
-| **Git Changes** | `@git-changes` | Shows uncommitted changes | "Suggest a message for @git-changes" |
-| **URL** | `@https://example.com` | Imports website content | "Summarize @https://docusaurus.io/" |
-
-### File Mentions
-
-<img src="/img/context-mentions/context-mentions-1.png" alt="File mention example showing a file being referenced with @ and its contents appearing in the conversation" width="600" />
-
-*File mentions incorporate source code with line numbers for precise references.*
-| Capability | Details |
-|------------|---------|
-| **Format** | `@/path/to/file.ts` (always start with `/` from workspace root) |
-| **Provides** | Complete file contents with line numbers |
-| **Supports** | Text files, PDFs, and DOCX files (with text extraction) |
-| **Works in** | Initial requests, feedback responses, and follow-up messages |
-| **Limitations** | Very large files may be truncated; binary files not supported |
-
-### Folder Mentions
-
-<img src="/img/context-mentions/context-mentions-2.png" alt="Folder mention example showing directory contents being referenced in the chat" width="600" />
-
-*Folder mentions include the content of all files within the specified directory.*
-| Capability | Details |
-|------------|---------|
-| **Format** | `@/path/to/folder` (no trailing slash) |
-| **Provides** | Complete contents of all files within the directory |
-| **Includes** | Contents of non-binary text files directly within the folder (not recursive) |
-| **Best for** | Providing context from multiple files in a directory |
-| **Tip** | Be mindful of context window limits when mentioning large directories |
-
-### Problems Mention
-
-<img src="/img/context-mentions/context-mentions-3.png" alt="Problems mention example showing VS Code problems panel being referenced with @problems" width="600" />
-
-*Problems mentions import diagnostics directly from VS Code's problems panel.*
-| Capability | Details |
-|------------|---------|
-| **Format** | `@problems` |
-| **Provides** | All errors and warnings from VS Code's problems panel |
-| **Includes** | File paths, line numbers, and diagnostic messages |
-| **Groups** | Problems organized by file for better clarity |
-| **Best for** | Fixing errors without manual copying |
-
-For comprehensive details on how Roo Code integrates with VSCode's diagnostics system, see [Diagnostics Integration](/features/diagnostics-integration).
-
-### Terminal Mention
-<img src="/img/context-mentions/context-mentions-4.png" alt="Terminal mention example showing terminal output being included in Roo's context" width="600" />
-
-*Terminal mentions capture recent command output for debugging and analysis.*
-
-| Capability | Details |
-|------------|---------|
-| **Format** | `@terminal` |
-| **Captures** | Last command and its complete output |
-| **Preserves** | Terminal state (doesn't clear the terminal) |
-| **Limitation** | Limited to visible terminal buffer content |
-| **Best for** | Debugging build errors or analyzing command output |
-
-### Git Mentions
-
-<img src="/img/context-mentions/context-mentions-5.png" alt="Git commit mention example showing commit details being analyzed by Roo" width="600" />
-
-*Git mentions provide commit details and diffs for context-aware version analysis.*
-| Type | Format | Provides | Limitations |
-|------|--------|----------|------------|
-| **Commit** | `@a1b2c3d` | Commit message, author, date, and complete diff | Only works in Git repositories |
-| **Working Changes** | `@git-changes` | `git status` output and diff of uncommitted changes | Only works in Git repositories |
-
-### URL Mentions
-<img src="/img/context-mentions/context-mentions-6.png" alt="URL mention example showing website content being converted to Markdown in the chat" width="600" />
-
-*URL mentions import external web content and convert it to readable Markdown format.*
-
-| Capability | Details |
-|------------|---------|
-| **Format** | `@https://example.com` |
-| **Processing** | Uses headless browser to fetch content |
-| **Cleaning** | Removes scripts, styles, and navigation elements |
-| **Output** | Converts content to Markdown for readability |
-| **Limitation** | Complex pages may not convert perfectly |
+*上下文提及概述，显示聊天界面中的 @ 符号下拉菜单。*
 
 ---
 
-## How to Use Mentions
+## 提及类型
 
-1. Type `@` in the chat input to trigger the suggestions dropdown
-2. Continue typing to filter suggestions or use arrow keys to navigate
-3. Select with Enter key or mouse click
-4. Combine multiple mentions in a request: "Fix @problems in @/src/component.ts"
+<img src="/img/context-mentions/context-mentions-1.png" alt="文件提及示例，显示用 @ 引用的文件及其内容出现在对话中" width="600" />
 
-The dropdown automatically suggests:
-- Recently opened files
-- Visible folders
-- Recent git commits
-- Special keywords (`problems`, `terminal`, `git-changes`)
-- **All currently open files** (regardless of ignore settings or directory filters)
+*文件提及相关代码内容直接出现在对话中，便于参考和分析。*
 
-The dropdown automatically filters out common directories like `node_modules`, `.git`, `dist`, and `out` to reduce noise, even though their content could be included if manually typed.
+| 提及类型 | 格式 | 描述 | 使用示例 |
+|----------|------|------|--------|
+| **文件** | `@/path/to/file.ts` | 在请求上下文中包含文件内容 | "解释 @/src/utils.ts 中的函数" |
+| **文件夹** | `@/path/to/folder` | 包含文件夹中所有文件的内容（非递归） | "分析 @/src/components 中的代码" |
+| **问题** | `@problems` | 包含 VS Code 问题面板诊断信息 | "@problems 修复我代码中的所有错误" |
+| **终端** | `@terminal` | 包含最近的终端命令和输出 | "修复 @terminal 中显示的错误" |
+| **Git 提交** | `@a1b2c3d` | 通过哈希引用特定提交 | "提交 @a1b2c3d 中更改了什么？" |
+| **Git 更改** | `@git-changes` | 显示未提交的更改 | "为 @git-changes 建议消息" |
+| **URL** | `@https://example.com` | 导入网站内容 | "总结 @https://docusaurus.io/" |
+
+### 文件提及
+
+<img src="/img/context-mentions/context-mentions-1.png" alt="文件提及示例，显示用 @ 引用的文件及其内容出现在对话中" width="600" />
+
+*文件提及包含源代码和行号，便于精确引用。*
+
+| 功能 | 详情 |
+|------|------|
+| **格式** | `@/path/to/file.ts` (始终从工作区根目录开始用 `/`) |
+| **提供** | 完整的文件内容和行号 |
+| **支持** | 文本文件、PDF 和 DOCX 文件（带文本提取） |
+| **适用于** | 初始请求、反馈响应和后续消息 |
+| **限制** | 非常大的文件可能会被截断；不支持二进制文件 |
+
+### 文件夹提及
+
+<img src="/img/context-mentions/context-mentions-2.png" alt="文件夹提及示例，显示目录内容在聊天中被引用" width="600" />
+
+*文件夹提及相关目录中所有文件的内容。*
+
+| 功能 | 详情 |
+|------|------|
+| **格式** | `@/path/to/folder` (无尾部斜杠) |
+| **提供** | 目录中所有文件的完整内容 |
+| **包括** | 文件夹中非二进制文本文件的内容（非递归） |
+| **最佳用途** | 为目录中的多个文件提供上下文 |
+| **提示** | 提及大型目录时注意上下文窗口限制 |
+
+### 问题提及
+
+<img src="/img/context-mentions/context-mentions-3.png" alt="问题提及示例，显示用 @problems 引用的 VS Code 问题面板" width="600" />
+
+*问题提及相关 VS Code 问题面板的诊断信息。*
+
+| 功能 | 详情 |
+|------|------|
+| **格式** | `@problems` |
+| **提供** | VS Code 问题面板中的所有错误和警告 |
+| **包括** | 文件路径、行号和诊断消息 |
+| **分组** | 按文件组织的问题，更清晰 |
+| **最佳用途** | 无需手动复制即可修复错误 |
+
+有关 Roo Code 如何与 VSCode 诊断系统集成的详细信息，请参阅 [诊断集成](/features/diagnostics-integration)。
+
+### 终端提及
+
+<img src="/img/context-mentions/context-mentions-4.png" alt="终端提及示例，显示终端输出包含在 Roo 的上下文中" width="600" />
+
+*终端提及相关最近命令输出，用于调试和分析。*
+
+| 功能 | 详情 |
+|------|------|
+| **格式** | `@terminal` |
+| **捕获** | 最后命令及其完整输出 |
+| **保留** | 终端状态（不清除终端） |
+| **限制** | 仅限可见终端缓冲区内容 |
+| **最佳用途** | 调试构建错误或分析命令输出 |
+
+### Git 提及
+
+<img src="/img/context-mentions/context-mentions-5.png" alt="Git 提交提及示例，显示 Roo 分析的提交详情" width="600" />
+
+*Git 提及相关提交详情和差异，用于上下文感知的版本分析。*
+
+| 类型 | 格式 | 提供 | 限制 |
+|------|------|------|------|
+| **提交** | `@a1b2c3d` | 提交消息、作者、日期和完整差异 | 仅在 Git 仓库中工作 |
+| **工作更改** | `@git-changes` | `git status` 输出和未提交更改的差异 | 仅在 Git 仓库中工作 |
+
+### URL 提及
+
+<img src="/img/context-mentions/context-mentions-6.png" alt="URL 提及示例，显示网站内容转换为聊天中的 Markdown" width="600" />
+
+*URL 提及相关外部网页内容并转换为可读的 Markdown 格式。*
+
+| 功能 | 详情 |
+|------|------|
+| **格式** | `@https://example.com` |
+| **处理** | 使用无头浏览器获取内容 |
+| **清理** | 移除脚本、样式和导航元素 |
+| **输出** | 将内容转换为 Markdown 以提高可读性 |
+| **限制** | 复杂页面可能无法完美转换 |
 
 ---
 
-## Important Behaviors
+## 如何使用提及
 
-### Ignore File Interactions
+1. 在聊天输入中键入 `@` 以触发建议下拉菜单
+2. 继续键入以筛选建议或使用箭头键导航
+3. 按 Enter 键或鼠标点击选择
+4. 在请求中组合多个提及："修复 @problems 中 @/src/component.ts 的问题"
 
-| Behavior | Description |
-|----------|-------------|
-| **`.rooignore` bypass** | File and folder `@mentions` bypass `.rooignore` checks when fetching content for context. Content from ignored files will be included if directly mentioned. |
-| **`.gitignore` bypass** | Similarly, file and folder `@mentions` do not respect `.gitignore` rules when fetching content. |
-| **Git command respect** | Git-related mentions (`@git-changes`, `@commit-hash`) do respect `.gitignore` since they rely on Git commands. |
+下拉菜单会自动建议：
+- 最近打开的文件
+- 可见文件夹
+- 最近的 Git 提交
+- 特殊关键字（`problems`, `terminal`, `git-changes`）
+- **所有当前打开的文件**（无论忽略设置或目录过滤器如何）
+
+下拉菜单会自动过滤掉常见目录如 `node_modules`、`.git`、`dist` 和 `out` 以减少干扰，即使它们的内容可以通过手动键入包含。
 
 ---
 
-## Related Features
+## 重要行为
 
-- [Diagnostics Integration](/features/diagnostics-integration) - Learn about automatic error detection and smart severity filtering
-- [Code Actions](/features/code-actions) - Discover quick fixes and AI assistance directly in your editor
-- [Shell Integration](/features/shell-integration) - Understand how terminal mentions work with shell integration
+### 忽略文件交互
+
+| 行为 | 描述 |
+|------|------|
+| **`.rooignore` 绕过** | 文件和文件夹 `@mentions` 在获取上下文内容时绕过 `.rooignore` 检查。如果直接提及，忽略文件的内容将被包含。 |
+| **`.gitignore` 绕过** | 同样，文件和文件夹 `@mentions` 在获取内容时不遵守 `.gitignore` 规则。 |
+| **Git 命令尊重** | Git 相关提及（`@git-changes`, `@commit-hash`）由于依赖 Git 命令而尊重 `.gitignore`。 |
+
+---
+
+## 相关功能
+
+- [诊断集成](/features/diagnostics-integration) - 了解自动错误检测和智能严重性过滤
+- [代码操作](/features/code-actions) - 发现编辑器中的快速修复和 AI 辅助
+- [Shell 集成](/features/shell-integration) - 了解终端提及如何与 shell 集成
 

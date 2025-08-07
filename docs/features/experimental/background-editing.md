@@ -1,135 +1,135 @@
 ---
-description: Learn about the experimental Background Editing setting that allows uninterrupted coding while Roo Code makes file edits in the background.
+description: 了解实验性的后台编辑设置，该设置允许在 Roo Code 在后台进行文件编辑时不受干扰地编码。
 keywords:
-  - experimental features
-  - editor focus
-  - diff views
-  - background editing
-  - workflow optimization
-  - uninterrupted coding
+  - 实验功能
+  - 编辑器焦点
+  - 差异视图
+  - 后台编辑
+  - 工作流程优化
+  - 不受干扰的编码
 image: /img/social-share.jpg
 ---
-# Background Editing
+# 后台编辑
 
-Work without interruption while Roo Code edits files in the background—no more losing focus from automatic diff views.
+在 Roo Code 在后台编辑文件时不受干扰地工作——不再因自动差异视图而失去焦点。
 
-:::warning Experimental Feature
-This is an experimental feature that changes how file edits are displayed. While it can significantly improve workflow, you'll need to manually review changes through source control or file history.
+:::warning 实验功能
+这是一项实验功能，会改变文件编辑的显示方式。虽然它可以显著改善工作流程，但您需要通过源代码管理或文件历史记录手动审查更改。
 :::
 
 ---
 
-## Overview
+## 概述
 
-The "Background Editing" setting is an experimental feature that disables automatic diff view displays when Roo Code edits files. Instead of switching your editor focus to show diffs, Roo works silently in the background, allowing you to continue coding without interruption. This feature affects all file editing operations including write, apply diff, search/replace, insert content, and multi-file apply diff tools.
+“后台编辑”设置是一项实验功能，它在 Roo Code 编辑文件时禁用自动差异视图显示。Roo 不会将您的编辑器焦点切换到显示差异，而是默默地在后台工作，让您可以继续编码而不受干扰。此功能影响所有文件编辑操作，包括写入、应用差异、搜索/替换、插入内容和多文件应用差异工具。
 
-### Key Benefits
+### 主要优势
 
-- **Uninterrupted Focus**: Stay in your current file while Roo makes changes
-- **Smoother Workflow**: No context switching between files
-- **Background Processing**: File edits happen silently
-- **Reduced Distractions**: Maintain your coding flow
-- **Performance**: Faster file operations without UI updates
-- **Batch Operations**: Ideal for large refactoring or multiple file updates
+- **不间断的焦点**：在 Roo 进行更改时保持在当前文件中
+- **更流畅的工作流程**：无需在文件之间切换上下文
+- **后台处理**：文件编辑在后台静默进行
+- **减少干扰**：保持您的编码流程
+- **性能**：无需 UI 更新即可更快地进行文件操作
+- **批处理操作**：非常适合大型重构或多个文件更新
 
-### Trade-offs
+### 权衡
 
-- **No Visual Confirmation**: You won't see diffs as changes are made
-- **Manual Review Required**: Check changes through Git or file history
-- **Less Immediate Feedback**: Changes aren't immediately visible
-- **Silent Changes**: Files change without visual notification - check Git status regularly
-- **Limited Environment Context**: Roo won't see recently edited files as open tabs in its environment details since they're not visually opened
-
----
-
-## Enabling the Feature
-
-To enable Background Editing:
-
-1. Open Roo Code settings (gear icon in the top right)
-2. Navigate to the "Experimental" tab
-3. Find "Background editing" in the list
-4. Toggle the setting to enable it
-
-<img src="/img/background-editing/background-editing.png" alt="Background editing setting in Roo Code experimental features" width="400" />
+- **无视觉确认**：在进行更改时您将看不到差异
+- **需要手动审查**：通过 Git 或文件历史记录检查更改
+- **较少的即时反馈**：更改不会立即可见
+- **静默更改**：文件在没有视觉通知的情况下更改 - 定期检查 Git 状态
+- **有限的环境上下文**：由于文件未在视觉上打开，Roo 不会将最近编辑的文件视为其环境详细信息中的打开标签页
 
 ---
 
-## How It Works
+## 启用功能
 
-### Default Behavior (Feature Disabled)
+要启用后台编辑：
 
-Without this feature, when Roo edits a file:
-1. The file opens in your editor
-2. A diff view appears showing changes
-3. Your focus shifts to the modified file
-4. You review and potentially adjust changes
+1. 打开 Roo Code 设置（右上角的齿轮图标）
+2. 导航到“实验”选项卡
+3. 在列表中找到“后台编辑”
+4. 切换设置以启用它
 
-### With Feature Enabled
-
-When enabled, Roo's file edits:
-1. Happen silently in the background
-2. Don't open new editor tabs
-3. Don't show diff views
-4. Don't interrupt your current work
-5. Still open files in memory for diagnostic detection (not visible)
-
-### What Still Happens
-
-Even with the feature enabled:
-- Files are still modified on disk
-- Changes appear in source control
-- File watchers and build tools detect changes
-- Roo's chat shows what files were edited
-- Error detection and diagnostics continue to work normally
-- Files are opened in memory for diagnostic purposes (not visible in editor)
-- Write delays for diagnostic detection are still respected
+<img src="/img/background-editing/background-editing.png" alt="Roo Code 实验功能中的后台编辑设置" width="400" />
 
 ---
 
-## Best Use Cases
+## 工作原理
 
-This feature is particularly beneficial for:
+### 默认行为（功能禁用）
 
-- **Large Refactoring Operations**: When Roo needs to update many files
-- **Batch File Updates**: Making similar changes across multiple files
-- **Performance-Sensitive Tasks**: When UI updates would slow down operations
-- **Focused Coding Sessions**: When you want to avoid context switches
-- **Automated Workflows**: Running multiple file operations in sequence
+在没有此功能的情况下，当 Roo 编辑文件时：
+1. 文件在您的编辑器中打开
+2. 出现一个差异视图，显示更改
+3. 您的焦点转移到修改后的文件
+4. 您审查并可能调整更改
+
+### 功能启用后
+
+启用后，Roo 的文件编辑：
+1. 在后台静默进行
+2. 不打开新的编辑器标签页
+3. 不显示差异视图
+4. 不中断您当前的工作
+5. 仍为诊断检测在内存中打开文件（不可见）
+
+### 仍然会发生什么
+
+即使启用了该功能：
+- 文件仍会在磁盘上被修改
+- 更改会出现在源代码控制中
+- 文件观察器和构建工具会检测到更改
+- Roo 的聊天会显示编辑了哪些文件
+- 错误检测和诊断继续正常工作
+- 文件会为诊断目的在内存中打开（在编辑器中不可见）
+- 诊断检测的写入延迟仍然得到遵守
 
 ---
 
-## Best Practices
+## 最佳使用场景
 
-When using this feature:
+此功能特别有益于：
 
-1. **Use Version Control**: Regularly check Git status to track changes
-2. **Review Periodically**: Don't let too many changes accumulate without review
-3. **Enable Selectively**: Consider enabling for specific task types
-4. **Monitor Chat**: Pay attention to Roo's messages about file modifications
-5. **Check Diagnostics**: Ensure your editor's problems panel stays visible
+- **大型重构操作**：当 Roo 需要更新许多文件时
+- **批处理文件更新**：在多个文件中进行类似更改
+- **对性能敏感的任务**：当 UI 更新会减慢操作速度时
+- **专注的编码会话**：当您想避免上下文切换时
+- **自动化工作流程**：按顺序运行多个文件操作
 
 ---
 
-## FAQ
+## 最佳实践
 
-**Q: Can I still see what files Roo edited?**
-A: Yes, Roo's chat messages list all modified files, and changes appear in source control.
+使用此功能时：
 
-**Q: What if I need to see a specific change immediately?**
-A: You can manually open the file and use source control to view the diff.
+1. **使用版本控制**：定期检查 Git 状态以跟踪更改
+2. **定期审查**：不要让太多更改在未经审查的情况下累积
+3. **有选择地启用**：考虑为特定任务类型启用
+4. **监控聊天**：注意 Roo 关于文件修改的消息
+5. **检查诊断**：确保您的编辑器问题面板保持可见
 
-**Q: Does this affect Roo's ability to edit files?**
-A: No, Roo can still make all the same edits; only the display behavior changes. All file editing tools (write, apply diff, search/replace, insert content, and multi-file apply diff) respect this setting.
+---
 
-**Q: Can I enable this for specific projects only?**
-A: Currently, this is a global setting that affects all projects.
+## 常见问题解答
 
-**Q: What happens to approval dialogs?**
-A: File edit approvals still appear if you haven't auto-approved them; only the diff display is suppressed.
+**问：我还能看到 Roo 编辑了哪些文件吗？**
+答：是的，Roo 的聊天消息会列出所有修改的文件，更改会出现在源代码控制中。
 
-**Q: Do diagnostics and error detection still work?**
-A: Yes, files are opened in memory for diagnostic detection, so error checking continues to function normally even though files aren't displayed.
+**问：如果我需要立即看到特定更改怎么办？**
+答：您可以手动打开文件并使用源代码控制查看差异。
 
-**Q: How does this feature appear in the settings?**
-A: In the Experimental tab, it's labeled as "Background editing" with a description about preventing editor focus disruption.
+**问：这会影响 Roo 编辑文件的能力吗？**
+答：不会，Roo 仍然可以进行所有相同的编辑；只有显示行为发生了变化。所有文件编辑工具（写入、应用差异、搜索/替换、插入内容和多文件应用差异）都遵守此设置。
+
+**问：我可以仅为特定项目启用此功能吗？**
+答：目前，这是一个影响所有项目的全局设置。
+
+**问：审批对话框会发生什么？**
+答：如果您尚未自动批准文件编辑，文件编辑审批仍会出现；只有差异显示被抑制。
+
+**问：诊断和错误检测仍然有效吗？**
+答：是的，文件会在内存中打开以进行诊断检测，因此即使文件未显示，错误检查也会继续正常运行。
+
+**问：此功能在设置中如何显示？**
+答：在实验选项卡中，它被标记为“后台编辑”，并带有防止编辑器焦点中断的描述。

@@ -1,146 +1,64 @@
----
-description: Improve your AI interactions with Roo Code's Enhance Prompt feature. Automatically refine prompts for clarity, context, and better results with one click.
-keywords:
-  - enhance prompt
-  - prompt optimization
-  - AI prompts
-  - prompt engineering
-  - chat enhancement
-  - prompt refinement
-  - wand icon
-image: /img/social-share.jpg
----
+# 增强提示
 
-# Enhance Prompt
+## 概述
 
-The "Enhance Prompt" feature in Roo Code helps you improve the quality and effectiveness of your prompts before sending them to the AI model. By clicking the wand icon in the chat input, you can automatically refine your initial request, making it clearer, more specific, and more likely to produce the desired results.
+增强提示功能允许您通过自动添加上下文、文件内容和相关信息来优化您的提示。这确保 Roo Code 能够生成更准确和相关的响应。
 
----
+## 目录
 
-## Why Use Enhance Prompt?
+- [使用方法](#使用方法)
+- [特殊行为](#特殊行为)
+- [自定义增强流程](#自定义增强流程)
+- [API 配置](#api-配置)
+- [上下文感知增强](#上下文感知增强)
+- [UI 元素](#ui-元素)
 
-*   **Improved Clarity:**  Roo Code can rephrase your prompt to make it more understandable for the AI model.
-*   **Added Context:**  The enhancement process can add relevant context to your prompt, such as the current file path or selected code.
-*   **Better Instructions:**  Roo Code can add instructions to guide the AI towards a more helpful response (e.g., requesting specific formatting or a particular level of detail).
-*   **Reduced Ambiguity:**  Enhance Prompt helps to eliminate ambiguity and ensure that Roo Code understands your intent.
-*   **Consistency**: Roo will consistently format prompts the same way to the AI.
-*   **Context-Aware Suggestions:** When enabled, uses your recent conversation history to generate more relevant and accurate enhancements.
+## 使用方法
 
----
+要使用增强提示功能：
 
-## How to Use Enhance Prompt
+1. 在聊天界面中，点击增强按钮（<Codicon name="wand" />）。
+2. 或者，使用快捷键 `Ctrl+Shift+E`（Windows/Linux）或 `Cmd+Shift+E`（macOS）。
+3. Roo Code 将自动分析您的提示并添加相关上下文。
 
-1.  **Type your initial prompt:**  Enter your request in the Roo Code chat input box as you normally would.  This can be a simple question, a complex task description, or anything in between.
-2.  **Click the Wand Icon:**  Instead of pressing Enter, click the wand icon located in the top right corner of the chat input box. While Roo processes your enhancement request, the wand icon will spin to indicate it's working.
-3.  **Review the Enhanced Prompt:**  Roo Code will replace your original prompt with an enhanced version.  Review the enhanced prompt to make sure it accurately reflects your intent. You can further refine the enhanced prompt before sending. Changed your mind? You can undo the enhancement using Ctrl+Z (Cmd+Z on Mac) to restore your original prompt.
-4.  **Send the Enhanced Prompt:**  Press Enter or click the Send icon (<Codicon name="send" />) to send the enhanced prompt to Roo Code.
+## 特殊行为
 
----
+增强提示功能具有以下特殊行为：
 
-## Special Behaviors
+- **文件引用：** 如果您的提示中包含文件名（例如 `src/main.js`），Roo Code 将自动包含这些文件的内容。
+- **符号引用：** 如果您的提示中包含符号（例如 `MyClass`），Roo Code 将尝试找到并包含相关定义。
+- **项目结构：** Roo Code 可能会包含项目结构信息以提供上下文。
 
-### Empty Prompt Enhancement
+## 自定义增强流程
 
-If you click the enhance button with an empty prompt, Roo will show you a helpful message explaining how the feature works. This is a great way to learn about the enhancement feature if you're new to it.
+您可以通过以下方式自定义增强流程：
 
-### Message Queueing Support
+- **配置文件：** 在 `.roo/config.json` 中配置增强设置。
+- **模式特定增强：** 不同的模式可以有不同的增强规则。
+- **排除规则：** 指定不应包含在增强中的文件或目录。
 
-The enhance button remains enabled even when message sending is disabled. This allows you to enhance prompts that will be queued for later sending.
+## API 配置
 
----
+增强功能可以通过 API 进行配置：
 
-## Customizing the Enhancement Process
+- **端点：** `/api/enhance`
+- **方法：** `POST`
+- **参数：**
+  - `prompt`：原始提示文本。
+  - `context`：可选的上下文信息。
 
-The "Enhance Prompt" feature uses a customizable prompt template. You can modify this template to tailor the enhancement process to your specific needs.
+## 上下文感知增强
 
-### Accessing Prompts Settings
+增强功能利用上下文信息来提供更相关的增强：
 
-1.  **Open Settings:** Click the gear icon (<Codicon name="gear" />) in the Roo Code panel or use the settings command.
-2.  **Navigate to Prompts:** Go to the "Prompts" tab in the settings.
-3.  **Select "ENHANCE":** From the dropdown menu, select "ENHANCE" to view and edit the enhancement prompt.
+- **当前文件：** 分析当前打开的文件。
+- **选择内容：** 包含当前选择的代码。
+- **历史记录：** 考虑最近的聊天历史。
 
-### Editing the Enhancement Prompt
+## UI 元素
 
-The default enhancement prompt template is:
+增强提示功能在 UI 中包含以下元素：
 
-```
-Generate an enhanced version of this prompt (reply with only the enhanced prompt - no conversation, explanations, lead-in, bullet points, placeholders, or surrounding quotes):
-
-${userInput}
-```
-
-The `${userInput}` placeholder will be replaced with your original prompt. You can modify this template to fit your needs and the model's prompt format.
-
-### Testing Your Custom Prompt
-
-The Prompts settings include a test area where you can preview how your custom enhancement prompt works:
-
-1. After editing your enhancement prompt, look for the "Test Enhancement" section
-2. Enter a sample prompt to test
-3. Click "Test" to see how your custom prompt would enhance it
-4. Adjust your enhancement prompt as needed based on the results
-
----
-
-## API Configuration
-
-The API configuration used for Enhance Prompt is, by default, the same one that is selected for Roo Code tasks, but it can be changed:
-
-1.  **Open Settings:** Navigate to Roo Code settings
-2.  **Go to Prompts Tab:** Select the "Prompts" tab
-3.  **Select "ENHANCE":** Choose "ENHANCE" from the dropdown
-4.  **Configure API:** You'll see an "API Configuration" dropdown where you can choose an existing configuration. Future Enhance Prompt requests will be sent to that configured provider/model.
-
----
-
-## Context-Aware Enhancement
-
-The Enhance Prompt feature can now use your conversation history to generate more relevant suggestions. This helps reduce hallucinations and provides more accurate enhancements based on what you've been working on.
-
-### How It Works
-
-When enabled, the enhancement process includes your last 10 messages from the current conversation as context. This allows the AI to:
-- Understand what you've been working on
-- Maintain consistency with previous discussions
-- Avoid suggesting unrelated or incorrect enhancements
-- Provide more targeted and useful prompt improvements
-
-### Enabling Task History Context
-
-To enable or disable the use of conversation history in prompt enhancement:
-
-1. **Open Settings:** Navigate to Roo Code settings
-2. **Go to Prompts Tab:** Select the "Prompts" tab
-3. **Select "ENHANCE":** Choose "ENHANCE" from the dropdown
-4. **Toggle History Option:** Check or uncheck "Include task history in enhancement" for better context
-
-When disabled, the enhancement will only consider your current prompt without any conversation context.
-
----
-
-## Visual Feedback and UI Elements
-
-### Button Appearance
-- The wand icon appears semi-transparent (60% opacity) by default
-- Becomes fully opaque (100%) when you hover over it
-- Located in the top-right corner of the chat input box
-- Has a focus ring for keyboard accessibility
-
-### Loading State
-- While processing your enhancement request, the wand icon spins
-- This provides clear visual feedback that Roo is working on your prompt
-
-### Tooltip
-- Hovering over the button shows: "Enhance prompt with additional context"
-- Helps new users understand the button's purpose
-
----
-
-## Limitations and Best Practices
-
-*   **Experimental Feature:**  Prompt enhancement is an experimental feature. The quality of the enhanced prompt may vary depending on the complexity of your request and the capabilities of the underlying model.
-*   **Review Carefully:**  Always review the enhanced prompt before sending it.  Roo Code may make changes that don't align with your intentions.
-*   **Iterative Process:**  You can use the "Enhance Prompt" feature multiple times to iteratively refine your prompt.
-*   **Not a Replacement for Clear Instructions:** While "Enhance Prompt" can help, it's still important to write clear and specific prompts from the start.
-
-By using the "Enhance Prompt" feature, you can improve the quality of your interactions with Roo Code and get more accurate and helpful responses.
+- **增强按钮：** 用于触发增强功能的按钮（<Codicon name="wand" />）。
+- **快捷键提示：** 显示可用快捷键的提示。
+- **增强指示器：** 显示提示何时被增强的视觉指示器。

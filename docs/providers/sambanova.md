@@ -1,6 +1,6 @@
 ---
 sidebar_label: SambaNova
-description: Configure SambaNova's high-speed AI models in Roo Code. Experience enterprise-grade inference with competitive performance and diverse model selection.
+description: 在 Roo Code 中配置 SambaNova 的高速 AI 模型。体验具有竞争力的性能和多样化模型选择的企业级推理。
 keywords:
   - sambanova
   - sambanova ai
@@ -13,23 +13,23 @@ keywords:
 image: /img/social-share.jpg
 ---
 
-# Using SambaNova With Roo Code
+# 在 Roo Code 中使用 SambaNova
 
-SambaNova specializes in providing high-speed inference for large language models, utilizing their Reconfigurable Dataflow Units (RDUs) through their SambaCloud portal. This delivers fast response times for supported models.
+SambaNova 专注于为大型语言模型提供高速推理，通过其 SambaCloud 门户利用其可重构数据流单元 (RDUs)。这为支持的模型提供了快速的响应时间。
 
-**Website:** [https://cloud.sambanova.ai/](https://cloud.sambanova.ai/)
-
----
-
-## Getting an API Key
-
-To use SambaNova with Roo Code, you'll need an API key from the [SambaCloud](https://cloud.sambanova.ai?utm_source=roocode&utm_medium=external&utm_campaign=cloud_signup). After signing up, navigate to the API Keys section in the left panel to create and copy your SambaCloud API key.
+**网站:** [https://cloud.sambanova.ai/](https://cloud.sambanova.ai/)
 
 ---
 
-## Supported Models
+## 获取 API 密钥
 
-Roo Code will attempt to fetch the list of available models from the SambaNova API. Common models available via SambaCloud include:
+要在 Roo Code 中使用 SambaNova，您需要从 [SambaCloud](https://cloud.sambanova.ai?utm_source=roocode&utm_medium=external&utm_campaign=cloud_signup) 获取 API 密钥。注册后，导航到左侧面板中的 API 密钥部分以创建并复制您的 SambaCloud API 密钥。
+
+---
+
+## 支持的模型
+
+Roo Code 将尝试从 SambaNova API 获取可用模型列表。通过 SambaCloud 常见的模型包括：
 
 *   `DeepSeek-R1`
 *   `DeepSeek-V3-0324`
@@ -40,14 +40,14 @@ Roo Code will attempt to fetch the list of available models from the SambaNova A
 *   `Qwen3-32B`
 *   `Llama-3.3-Swallow-70B-Instruct-v0.4`
 
-Refer to the [SambaCloud Documentation](https://docs.sambanova.ai/cloud/docs/get-started/supported-models) for the most up-to-date list of supported models and their capabilities.
+请参阅 [SambaCloud 文档](https://docs.sambanova.ai/cloud/docs/get-started/supported-models) 以获取最新的支持模型列表及其功能。
 
 ---
 
-## Configuration in Roo Code
+## 在 Roo Code 中配置
 
-1. **Open Roo Code Settings:** Click the gear icon (<Codicon name="gear" />) in the Roo Code panel.
-2. **Select Provider:** Choose "SambaNova" from the "API Provider" dropdown.
-3. **Enter API Key:** Paste your SambaNova API key into the "SambaNova API Key" field.
-4. **Select Model:** Choose your desired model from the "Model" dropdown.
-5. **(Optional) Custom Base URL:** If using a private deployment, check "Use custom base URL" and enter your endpoint URL.
+1. **打开 Roo Code 设置：** 点击 Roo Code 面板中的齿轮图标 (<Codicon name="gear" />)。
+2. **选择提供商：** 从 "API 提供商" 下拉列表中选择 "SambaNova"。
+3. **输入 API 密钥：** 将您的 SambaNova API 密钥粘贴到 "SambaNova API 密钥" 字段中。
+4. **选择模型：** 从 "模型" 下拉列表中选择您想要的模型。
+5. **(可选) 自定义基础 URL：** 如果使用私有部署，请勾选 "使用自定义基础 URL" 并输入您的端点 URL。

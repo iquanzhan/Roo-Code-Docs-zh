@@ -23,8 +23,8 @@ import {
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Roo Code Documentation',
-  tagline: 'AI-powered autonomous coding agent for VS Code - Complete documentation, guides, and tutorials',
+  title: 'Roo Code 文档',
+  tagline: 'VS Code 的 AI 驱动自主编程助手 - 完整的文档、指南和教程',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -44,8 +44,8 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'zh-Hans',
+    locales: ['zh-Hans'],
   },
 
   presets: [
@@ -56,7 +56,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/',
           editUrl: `${GITHUB_REPO_URL}/edit/main/`,
-          showLastUpdateTime: true,
+          showLastUpdateTime: false,
         },
         blog: false, // Disable blog feature
         theme: {
@@ -72,7 +72,7 @@ const config: Config = {
       require.resolve("@easyops-cn/docusaurus-search-local"),
       {
         hashed: true,
-        language: ["en"],
+        language: ["zh"],
         highlightSearchTermsOnTargetPage: true,
         explicitSearchResultPath: true,
         docsRouteBasePath: "/",
@@ -307,7 +307,7 @@ const config: Config = {
       },
       links: [
         {
-          title: 'Community',
+          title: '社区',
           items: [
             {
               label: 'Discord',
@@ -343,46 +343,46 @@ const config: Config = {
           title: 'GitHub',
           items: [
             {
-              label: 'Issues',
+              label: '问题反馈',
               href: GITHUB_ISSUES_MAIN_URL,
             },
             {
-              label: 'Feature Requests',
+              label: '功能请求',
               href: GITHUB_FEATURES_URL,
             },
           ],
         },
         {
-          title: 'Download',
+          title: '下载',
           items: [
             {
-              label: 'VS Code Marketplace',
+              label: 'VS Code 应用商店',
               href: VSCODE_MARKETPLACE_URL,
             },
             {
-              label: 'Open VSX Registry',
+              label: 'Open VSX 注册表',
               href: OPEN_VSX_URL,
             },
           ],
         },
         {
-          title: 'Company',
+          title: '公司',
           items: [
             {
-              label: 'Contact',
+              label: '联系我们',
               href: CONTACT_EMAIL,
               target: '_self',
             },
             {
-              label: 'Careers',
+              label: '招聘信息',
               href: CAREERS_URL,
             },
             {
-              label: 'Website Privacy Policy',
+              label: '网站隐私政策',
               href: WEBSITE_PRIVACY_URL,
             },
             {
-              label: 'Extension Privacy Policy',
+              label: '扩展隐私政策',
               href: EXTENSION_PRIVACY_URL,
             },
           ],

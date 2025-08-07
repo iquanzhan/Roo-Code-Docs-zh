@@ -1,109 +1,102 @@
 ---
 sidebar_label: Fireworks AI
-description: Use Fireworks AI with Roo Code to access state-of-the-art open-source and proprietary AI models like Kimi, Qwen, and DeepSeek on a high-performance platform with large context windows up to 256K tokens.
+description: 通过 Roo Code 使用 Fireworks AI 访问 Kimi K2、Qwen3 和 DeepSeek 等最先进的开源模型，上下文窗口最大可达 256K token。
 keywords:
   - fireworks ai
   - fireworks
-  - kimi models
   - kimi k2
-  - qwen models
   - qwen3
-  - deepseek models
   - deepseek
   - roo code
   - api provider
-  - ai models
-  - language models
-  - llm api
   - open source models
-  - serverless models
+  - ai models
   - openai compatible
 image: /img/social-share.jpg
 ---
 
-# Using Fireworks AI With Roo Code
+# 在 Roo Code 中使用 Fireworks AI
 
-Fireworks AI is a high-performance platform for running AI models, offering fast, cost-effective access to a wide range of state-of-the-art open-source language models. Built for speed and reliability, Fireworks AI provides serverless deployment options with OpenAI-compatible APIs and context windows up to 256,000 tokens.
+Fireworks AI 通过其优化的基础设施提供对最先进的开源语言模型的访问。该提供商提供了具有成本效益的专有 AI 服务替代方案，上下文窗口最大可达 256,000 个 token。
 
-**Website:** [https://fireworks.ai/](https://fireworks.ai/)
-
----
-
-## Getting an API Key
-
-1. **Sign Up/Sign In:** Go to [Fireworks AI](https://fireworks.ai/) and create an account or sign in.
-2. **Navigate to API Keys:** After logging in, go to the [API Keys page](https://app.fireworks.ai/settings/users/api-keys) in the account settings.
-3. **Create a Key:** Click "Create API key" and give your key a descriptive name (e.g., "Roo Code").
-4. **Copy the Key:** Copy the API key *immediately* and store it securely. You will not be able to see it again.
+**网站：** [https://fireworks.ai/](https://fireworks.ai/)
 
 ---
 
-## Supported Models
+## 获取 API 密钥
 
-Fireworks AI offers several high-performance models:
+1. **注册/登录：** 前往 [Fireworks AI](https://fireworks.ai/)。创建账户或登录。
+2. **导航到仪表板：** 访问您的账户仪表板。
+3. **生成 API 密钥：** 从仪表板创建新的 API 密钥。
+4. **复制密钥：** **重要：** 立即复制 API 密钥并安全存储。
+
+---
+
+## 支持的模型
+
+Fireworks AI 提供了几种高性能模型：
 
 ### Kimi K2
-* `accounts/fireworks/models/kimi-k2-instruct` (Default)
-  - 1 trillion total parameters with 32B activated params
-  - 128K context window
-  - Optimized for agentic capabilities
-  - $0.60/M input, $2.50/M output
+* `accounts/fireworks/models/kimi-k2-instruct` (默认)
+  - 总计 1 万亿参数，激活参数 32B
+  - 128K 上下文窗口
+  - 针对代理能力进行了优化
+  - $0.60/M 输入，$2.50/M 输出
 
-### Qwen3 Series
+### Qwen3 系列
 * `accounts/fireworks/models/qwen3-235b-a22b-instruct-2507`
-  - 256K context window
-  - Competitive with closed-source models
-  - $0.22/M input, $0.88/M output
+  - 256K 上下文窗口
+  - 与闭源模型具有竞争力
+  - $0.22/M 输入，$0.88/M 输出
 
 * `accounts/fireworks/models/qwen3-coder-480b-a35b-instruct`
-  - 256K context window
-  - Specialized for coding tasks
-  - $0.45/M input, $1.80/M output
+  - 256K 上下文窗口
+  - 专门用于编码任务
+  - $0.45/M 输入，$1.80/M 输出
 
-### DeepSeek Series
+### DeepSeek 系列
 * `accounts/fireworks/models/deepseek-r1-0528`
-  - 160K context window
-  - Advanced reasoning with reduced hallucination
-  - Function calling support
-  - $3.00/M input, $8.00/M output
+  - 160K 上下文窗口
+  - 先进的推理能力，减少幻觉
+  - 支持函数调用
+  - $3.00/M 输入，$8.00/M 输出
 
 * `accounts/fireworks/models/deepseek-v3`
-  - 128K context window
-  - 671B total parameters with 37B activated
-  - $0.90/M input, $0.90/M output
+  - 128K 上下文窗口
+  - 总计 671B 参数，激活参数 37B
+  - $0.90/M 输入，$0.90/M 输出
 
 ---
 
-## Configuration in Roo Code
+## 在 Roo Code 中配置
 
-1. **Open Roo Code Settings:** Click the gear icon (<Codicon name="gear" />) in the Roo Code panel.
-2. **Select Provider:** Choose "Fireworks AI" from the "API Provider" dropdown.
-3. **Enter API Key:** Paste your Fireworks AI API key into the "Fireworks AI API Key" field.
-4. **Model Selection:** The default model (Kimi K2) is automatically selected. You can change it from the model dropdown if needed.
+1. **打开 Roo Code 设置：** 点击 Roo Code 面板中的齿轮图标 (<Codicon name="gear" />)。
+2. **选择提供商：** 从“API 提供商”下拉菜单中选择“Fireworks AI”。
+3. **输入 API 密钥：** 将您的 Fireworks API 密钥粘贴到“Fireworks API 密钥”字段中。
+4. **模型选择：** 默认模型 (Kimi K2) 会自动选择。如果需要，您可以从模型下拉菜单中更改它。
 
 ---
 
-## Model Selection Guide
+## 模型选择指南
 
-Choose models based on your needs:
+根据您的需求选择模型：
 
-| Model | Best For | Context | Price |
+| 模型 | 最佳用途 | 上下文 | 价格 |
 |-------|----------|---------|-------|
-| **Kimi K2** | General tasks, balanced performance | 128K | Mid-range |
-| **Qwen3 235B** | Cost-effective general use | 256K | Budget-friendly |
-| **Qwen3 Coder** | Code generation and debugging | 256K | Mid-range |
-| **DeepSeek R1** | Complex reasoning, function calling | 160K | Premium |
-| **DeepSeek V3** | Strong general performance | 128K | Balanced |
+| **Kimi K2** | 通用任务，平衡性能 | 128K | 中等 |
+| **Qwen3 235B** | 具有成本效益的通用用途 | 256K | 预算友好 |
+| **Qwen3 Coder** | 代码生成和调试 | 256K | 中等 |
+| **DeepSeek R1** | 复杂推理，函数调用 | 160K | 高级 |
+| **DeepSeek V3** | 强大的通用性能 | 128K | 平衡 |
 
 ---
 
-## Tips and Notes
+## 提示和注意事项
 
-* **Cost-Effective:** Fireworks AI offers significantly lower pricing than proprietary models while maintaining competitive performance.
-* **Large Context Windows:** Most models support 128K-256K tokens, suitable for processing large documents and maintaining extended conversations.
-* **OpenAI Compatibility:** The provider uses an OpenAI-compatible API format with streaming support and usage tracking.
-* **Rate Limits:** Fireworks AI has usage-based rate limits. Monitor your usage in the dashboard and consider upgrading your plan if needed.
-* **Text-Only:** All models are text-only without image support or prompt caching capabilities.
-* **Default Temperature:** Uses 0.5 temperature by default for balanced creativity and consistency.
-* **API Keys:** Stored locally on your machine for security.
-* **Pricing:** See the [Fireworks AI pricing page](https://fireworks.ai/pricing) for current rates. Prices shown are per million tokens.
+* **成本效益：** Fireworks AI 提供了显著低于专有模型的价格，同时保持了有竞争力的性能。
+* **大上下文窗口：** 大多数模型支持 128K-256K token，适用于处理大型文档和维持长时间对话。
+* **OpenAI 兼容性：** 该提供商使用与 OpenAI 兼容的 API 格式，支持流式传输和使用情况跟踪。
+* **纯文本：** 所有模型都是纯文本的，不支持图像或提示缓存功能。
+* **默认温度：** 默认使用 0.5 的温度以平衡创造力和一致性。
+* **API 密钥：** 为了安全起见，存储在您的本地机器上。
+* **定价：** 有关当前费率，请参阅 [Fireworks AI 定价页面](https://fireworks.ai/pricing)。显示的价格为每百万 token 的价格。
